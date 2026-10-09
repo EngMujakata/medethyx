@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MedEthyx - Ethical healthcare, clinical research, governance and compliance support across Africa.">
+<meta name="description" content="MedEthyx provides trusted healthcare ethics, clinical research, governance and compliance support for organisations across Africa.">
+<meta name="theme-color" content="#0A1D2B">
+<meta name="color-scheme" content="light">
 <title>MedEthyx | Ethical Healthcare & Research</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -178,6 +181,50 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
 /* single scroll reveal for images/panels only */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
 
+/* refined premium details */
+::selection{background:rgba(0,168,143,.22);color:var(--ink)}
+.site-header{border-bottom:1px solid transparent}
+.site-header.solid{border-bottom-color:rgba(10,29,43,.06)}
+.logo{display:inline-flex;align-items:center;gap:10px;min-width:150px}
+.logo img{max-width:180px}
+.logo-wordmark{display:none;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.solid .logo-wordmark{color:var(--ink)}
+.logo-wordmark span{color:var(--teal)}
+.hero{isolation:isolate}
+.hero-bg{background-color:var(--ink);background-position:center 42%;}
+.hero-bg video{filter:saturate(.82) contrast(1.04);transform:scale(1.015)}
+.hero:before{background:linear-gradient(90deg,rgba(7,22,34,.83) 0%,rgba(7,22,34,.58) 55%,rgba(7,22,34,.25) 100%),linear-gradient(0deg,rgba(7,22,34,.88) 0%,rgba(7,22,34,.08) 70%)}
+.hero .wrap{padding-bottom:clamp(54px,8vh,100px)}
+.hero h1{max-width:12ch;text-wrap:balance}
+.hero p{max-width:570px}
+.btn{min-height:48px}
+.btn-orange{box-shadow:0 8px 22px rgba(255,107,53,.18)}
+.btn-orange:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,107,53,.24)}
+.section{overflow:clip}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.svc{position:relative;overflow:hidden}
+.svc:after{content:"";position:absolute;top:0;left:0;width:3px;height:0;background:var(--teal);transition:height .45s var(--ease)}
+.svc:hover:after{height:100%}
+.tri figure,.why-img,.why-img2{background:#dce7e8}
+.tri img,.why-img img,.why-img2 img{transition:transform .8s var(--ease),filter .5s}
+.tri figure:hover img{transform:scale(1.045);filter:saturate(1.05)}
+.tri figure:nth-child(2) img{filter:grayscale(100%)}.tri figure:nth-child(2):hover img{filter:grayscale(35%)}
+.card{box-shadow:0 16px 48px rgba(10,29,43,.045)}
+.fc{min-height:48px}
+textarea.fc{min-height:140px}
+.btn:focus-visible,.tab:focus-visible,.menu-btn:focus-visible{outline-offset:4px}
+.mobile-menu{box-shadow:-20px 0 60px rgba(10,29,43,.12)}
+@media(max-width:720px){
+ .hero{min-height:92svh;min-height:92vh}
+ .hero:before{background:linear-gradient(90deg,rgba(7,22,34,.76),rgba(7,22,34,.45)),linear-gradient(0deg,rgba(7,22,34,.9),rgba(7,22,34,.08) 80%)}
+ .hero h1{font-size:clamp(2.7rem,12vw,4.7rem)}
+ .hero p{font-size:16px}
+ .hero-actions .btn{padding:13px 14px;font-size:13px}
+ .marquee div{font-size:17px;gap:28px}
+ .marquee span:after{margin-left:28px}
+}
+@media(prefers-reduced-motion:reduce){.hero-bg video{display:none}}
+
 @media(max-width:1050px){
  .float-card{display:none}.tri{grid-template-columns:1fr 1fr}.tri figure:nth-child(3){display:none}.why-img2{right:10px;bottom:-24px}
  .nav-links,.desktop-cta{display:none}.menu-btn{display:flex}
@@ -205,7 +252,7 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
 
 <header class="site-header" id="header">
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="MedEthyx home"><img id="logoImg" src="logo.jpg" alt="MedEthyx" onerror="this.src='https://via.placeholder.com/180x50?text=MedEthyx'"></a>
+    <a class="logo" href="#top" aria-label="MedEthyx home"><img id="logoImg" src="logo.jpg" alt="MedEthyx logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="logo-wordmark">Med<span>Ethyx</span></span></a>
     <nav aria-label="Main navigation"><ul class="nav-links">
       <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#support">Who we support</a></li><li><a href="#process">How it works</a></li><li><a href="#contact">Contact</a></li>
     </ul></nav>
@@ -213,7 +260,7 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button>
   </div>
 </header>
-<div class="mobile-overlay" id="overlay"></div>
+<div class="mobile-overlay" id="overlay" aria-hidden="true"></div>
 <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
   <ul><li><a href="#about" class="ml">About</a></li><li><a href="#services" class="ml">Services</a></li><li><a href="#support" class="ml">Who we support</a></li><li><a href="#process" class="ml">How it works</a></li><li><a href="#contact" class="ml">Contact</a></li></ul>
   <a href="#contact" class="btn btn-orange ml">Book a consultation</a>
@@ -222,7 +269,7 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
 <main id="top">
 <section class="hero">
   <div class="hero-bg" id="heroBg">
-    <video id="heroVid" autoplay muted loop playsinline preload="metadata" poster="media/hero-poster.jpg"><source src="media/hero.webm" type="video/webm"><source src="media/hero.mp4" type="video/mp4"></video>
+    <video id="heroVid" autoplay muted loop playsinline preload="none" aria-hidden="true" poster="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=85"><source src="media/hero.webm" type="video/webm"><source src="hero.mp4" type="video/mp4"></video>
   </div>
   <div class="float-card"><i></i><div><strong>Built for African healthcare</strong><span>Local realities. Global best practice.</span></div></div>
   <div class="wrap">
@@ -287,16 +334,16 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
     <div class="kicker">The people behind safe care</div>
     <h2>Trust is built by clinicians, researchers and communities.</h2>
     <div class="tri">
-      <figure class="mask ph"><img src="media/doctor-1.jpg" alt="African doctor consulting with a patient" onerror="this.remove()"><figcaption>Patient-centred care</figcaption></figure>
-      <figure class="mask ph" style="transition-delay:.15s"><img src="media/doctor-2.jpg" alt="African researcher working in a laboratory" onerror="this.remove()"><figcaption>Rigorous research</figcaption></figure>
-      <figure class="mask ph" style="transition-delay:.3s"><img src="media/doctor-3.jpg" alt="African healthcare team in discussion" onerror="this.remove()"><figcaption>Accountable teams</figcaption></figure>
+      <figure class="mask ph"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=85" alt="African doctor consulting with a patient" loading="lazy" decoding="async"><figcaption>Patient-centred care</figcaption></figure>
+      <figure class="mask ph" style="transition-delay:.15s"><img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1000&q=85" alt="African researcher working in a laboratory" loading="lazy" decoding="async"><figcaption>Rigorous research</figcaption></figure>
+      <figure class="mask ph" style="transition-delay:.3s"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=85" alt="African healthcare team in discussion" loading="lazy" decoding="async"><figcaption>Accountable teams</figcaption></figure>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap why">
-    <div class="why-wrap rv"><div class="why-img ph"><img id="parallax" src="media/doctor-4.jpg" alt="African doctors discussing a case" onerror="this.remove()"></div><div class="why-img2 ph"><img src="media/doctor-5.jpg" alt="African doctor with clipboard" onerror="this.remove()"></div></div>
+    <div class="why-wrap rv"><div class="why-img ph"><img id="parallax" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1200&q=85" alt="African doctors discussing a case" loading="lazy" decoding="async"></div><div class="why-img2 ph"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&q=85" alt="African doctor with clipboard" loading="lazy" decoding="async"></div></div>
     <div class="rv">
       <div class="kicker">Why MedEthyx</div>
       <h2>Practical support built around trust.</h2>
@@ -386,7 +433,7 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
     <div class="big">Ready to talk about your healthcare or research needs?</div>
     <a href="#contact" class="btn btn-orange">Request a consultation <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     <div class="f-grid" style="margin-top:70px">
-      <div class="f-col"><img class="f-logo" src="logo2.jpg" alt="MedEthyx" onerror="this.src='https://via.placeholder.com/180x50?text=MedEthyx'"><p>Supporting ethical healthcare and research at every step, with practical, trusted support.</p>
+      <div class="f-col"><img class="f-logo" src="logo2.jpg" alt="MedEthyx logo" onerror="this.style.display='none'"><p>Supporting ethical healthcare and research at every step, with practical, trusted support.</p>
         <div class="socials">
           <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
           <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -443,7 +490,7 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
     e.preventDefault();btn.disabled=true;btn.textContent='Sending...';box.className='alert';
     var d={fullName:$('#fullName').value,organisation:$('#organisation').value,emailAddress:$('#emailAddress').value,phoneNumber:$('#phoneNumber').value,helpTopic:$('#helpTopic').value,needs:$('#needs').value};
     fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
-    .then(function(){box.className='alert success';box.textContent='Thank you. Your enquiry has been sent to MedEthyx.';form.reset()})
+    .then(function(){box.className='alert success';box.textContent='Your enquiry has been submitted. If your request is urgent, please contact MedEthyx directly using the details on this page.';form.reset()})
     .catch(function(err){console.error(err);box.className='alert error';box.textContent='The enquiry did not send. Please email us directly.'})
     .finally(function(){btn.disabled=false;btn.innerHTML=label});
   });
