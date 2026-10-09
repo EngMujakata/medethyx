@@ -5,739 +5,447 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="MedEthyx - Ethical healthcare, clinical research, governance and compliance support across Africa.">
 <title>MedEthyx | Ethical Healthcare & Research</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#0B192C;
-  --navy-2:#12243A;
-  --teal:#00A88F;
-  --teal-soft:#EAF8F5;
-  --orange:#FF6B35;
-  --orange-dark:#E05523;
-  --white:#fff;
-  --off-white:#F7F9FB;
-  --text:#172033;
-  --muted:#64748B;
-  --line:#E4E9EF;
-  --shadow:0 10px 30px rgba(11,25,44,.06);
-  --radius:14px;
-  --max:1180px;
-}
-
+:root{--ink:#0A1D2B;--ink2:#112B3D;--teal:#00A88F;--mint:#E6F4F1;--orange:#FF6B35;--orange2:#E05523;--mist:#F2F5F5;--text:#1B2A36;--muted:#5E6E7B;--line:#DDE5E8;--max:1180px;--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
-  color:var(--text);
-  background:var(--white);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Figtree',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
 body.menu-open{overflow:hidden}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-.container{width:min(var(--max),calc(100% - 40px));margin:auto}
-.icon{
-  width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;
-  stroke-linecap:round;stroke-linejoin:round;flex:none
-}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-height:1.08;letter-spacing:-.02em}
+.icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--teal);transform:scaleX(0);transform-origin:left;z-index:1100}
 
-/* HEADER */
-.site-header{
-  position:sticky;top:0;z-index:1000;
-  background:rgba(255,255,255,.96);
-  border-bottom:1px solid var(--line);
-}
-.nav{
-  min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px
-}
-.logo{display:flex;align-items:center}
-.logo img{width:auto;height:43px;object-fit:contain}
-.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
-.nav-links a{
-  color:#334155;font-size:14px;font-weight:600;position:relative;padding:26px 0
-}
-.nav-links a:hover{color:var(--teal)}
-.nav-links a:after{
-  content:"";position:absolute;left:0;right:0;bottom:18px;height:2px;
-  background:var(--teal);transform:scaleX(0);transform-origin:center;transition:.2s
-}
-.nav-links a:hover:after{transform:scaleX(1)}
-.btn{
-  border:0;border-radius:9px;padding:12px 18px;display:inline-flex;
-  align-items:center;justify-content:center;gap:9px;font-size:14px;font-weight:700;
-  transition:.2s ease
-}
-.btn-orange{background:var(--orange);color:#fff}
-.btn-orange:hover{background:var(--orange-dark);transform:translateY(-1px)}
-.btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-2);transform:translateY(-1px)}
-.btn-outline{background:#fff;border:1px solid #CBD5E1;color:var(--navy)}
-.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
-.menu-btn{
-  display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:9px;
-  background:#fff;align-items:center;justify-content:center;color:var(--navy)
-}
-
-/* MOBILE MENU */
-.mobile-overlay{
-  position:fixed;inset:0;background:rgba(11,25,44,.42);opacity:0;
-  pointer-events:none;transition:.2s;z-index:998
-}
+/* header */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,box-shadow .3s}
+.site-header.solid{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.logo img{height:42px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:14px;font-weight:600;color:#fff;position:relative;padding:6px 0;transition:color .3s}
+.solid .nav-links a{color:var(--ink)}
+.nav-links a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--orange);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav-links a:hover:after{transform:scaleX(1);transform-origin:left}
+.btn{border:0;border-radius:8px;padding:14px 22px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;transition:background .25s,transform .25s var(--ease),color .25s,border-color .25s}
+.btn .icon{transition:transform .3s var(--ease)}.btn:hover .icon{transform:translateX(4px)}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:var(--orange2)}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:8px;background:transparent;color:#fff;align-items:center;justify-content:center}
+.solid .menu-btn{border-color:var(--line);color:var(--ink)}
+.mobile-overlay{position:fixed;inset:0;background:rgba(10,29,43,.5);opacity:0;pointer-events:none;transition:.3s;z-index:998}
 .mobile-overlay.active{opacity:1;pointer-events:auto}
-.mobile-menu{
-  position:fixed;top:0;right:-360px;width:min(340px,88vw);height:100vh;
-  background:#fff;z-index:999;padding:92px 28px 30px;transition:.25s;
-  border-left:1px solid var(--line)
-}
+.mobile-menu{position:fixed;top:0;right:-360px;width:min(340px,88vw);height:100vh;background:#fff;z-index:999;padding:96px 28px 30px;transition:right .4s var(--ease)}
 .mobile-menu.active{right:0}
-.mobile-menu ul{list-style:none;display:grid;gap:7px;margin-bottom:28px}
-.mobile-menu a:not(.btn){
-  display:block;padding:14px 10px;border-bottom:1px solid var(--line);
-  font-weight:700;color:var(--navy)
-}
+.mobile-menu ul{list-style:none;margin-bottom:26px}
+.mobile-menu a:not(.btn){display:block;padding:15px 4px;border-bottom:1px solid var(--line);font-weight:700;color:var(--ink)}
 
-/* HERO */
-.hero{
-  background:
-    linear-gradient(90deg,rgba(247,249,251,.97),rgba(247,249,251,.78)),
-    url("https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1800&q=80") center/cover;
-  padding:86px 0 78px;border-bottom:1px solid var(--line)
-}
-.hero-grid{
-  display:grid;grid-template-columns:1.03fr .97fr;gap:64px;align-items:center
-}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:9px;color:var(--teal);
-  font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:17px
-}
-.eyebrow:before{content:"";width:28px;height:2px;background:var(--teal)}
-.hero h1{
-  font-size:clamp(2.6rem,5vw,4.35rem);line-height:1.08;letter-spacing:-2.4px;
-  color:var(--navy);max-width:690px;margin-bottom:22px
-}
-.hero p{font-size:17px;line-height:1.8;color:#526174;max-width:650px;margin-bottom:30px}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--ink);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:-6% 0;background:var(--ink) url("media/hero-poster.jpg") center/cover;animation:settle 2.4s var(--ease) both;will-change:transform}
+.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero-bg video.on{opacity:1}
+.float-card{position:absolute;right:max(20px,calc((100% - var(--max))/2));top:34%;z-index:2;background:rgba(255,255,255,.96);color:var(--ink);padding:16px 20px;border-radius:10px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.25);opacity:0;animation:fade .8s 1.2s ease forwards,bob 5s 2s ease-in-out infinite}
+.float-card i{width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(0,168,143,.6);animation:pulse 2s infinite}
+.float-card strong{display:block;font-size:14px}.float-card span{font-size:12px;color:var(--muted)}
+@keyframes bob{50%{transform:translateY(-10px)}}@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(0,168,143,0)}100%{box-shadow:0 0 0 0 rgba(0,168,143,0)}}
+.marquee{background:var(--teal);color:#fff;overflow:hidden;padding:18px 0;white-space:nowrap}
+.marquee div{display:inline-flex;gap:48px;padding-right:48px;animation:slide 32s linear infinite;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px}
+.marquee span:after{content:"+";margin-left:48px;opacity:.6}
+.marquee:hover div{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-100%)}}
+.mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease)}.mask.in{clip-path:inset(0)}
+.mask img{transform:scale(1.25);transition:transform 1.8s var(--ease)}.mask.in img{transform:scale(1)}
+.ph{background:linear-gradient(135deg,var(--ink2),var(--teal))}
+.tri{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-top:56px}
+.tri figure{position:relative;height:440px;overflow:hidden;border-radius:6px}
+.tri figure:nth-child(2){margin-top:48px}.tri figure:nth-child(3){margin-top:96px;height:344px}
+.tri img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.tri figcaption{position:absolute;left:0;right:0;bottom:0;padding:50px 20px 18px;color:#fff;font-weight:600;font-size:15px;background:linear-gradient(transparent,rgba(10,29,43,.85));transform:translateY(8px);opacity:.9;transition:transform .5s var(--ease)}
+.tri figure:hover figcaption{transform:none}
+.why-img2{position:absolute;right:-30px;bottom:-30px;width:46%;height:200px;border:6px solid #fff;border-radius:6px;overflow:hidden;z-index:2;box-shadow:0 20px 40px rgba(10,29,43,.2)}
+.why-img2 img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.stg>*{opacity:0;transform:translateX(-18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.stg.in>*{opacity:1;transform:none}
+.stg.in>*:nth-child(2){transition-delay:.1s}.stg.in>*:nth-child(3){transition-delay:.2s}.stg.in>*:nth-child(4){transition-delay:.3s}.stg.in>*:nth-child(5){transition-delay:.4s}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,29,43,.55) 0%,rgba(10,29,43,.78) 55%,var(--ink) 100%)}
+.hero .wrap{position:relative;z-index:2;padding:150px 0 70px}
+.hero h1{color:#fff;font-size:clamp(2.8rem,7.4vw,6.2rem);font-weight:800;letter-spacing:-.035em;max-width:11.5ch;margin-bottom:28px}
+.line{display:block;overflow:hidden;padding-bottom:.08em}
+.line>span{display:block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
+.line:nth-child(2)>span{animation-delay:.12s}.line:nth-child(3)>span{animation-delay:.24s}
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;opacity:0;animation:fade .9s .7s ease forwards}
+.hero p{max-width:520px;font-size:17px;color:#C6D3DC;line-height:1.75}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.hero-visual{
-  position:relative;background:#fff;border:1px solid var(--line);
-  padding:9px;border-radius:16px;box-shadow:var(--shadow)
-}
-.hero-visual img{width:100%;height:500px;object-fit:cover;border-radius:10px}
-.hero-note{
-  position:absolute;left:28px;bottom:28px;background:#fff;border:1px solid var(--line);
-  padding:14px 17px;border-radius:10px;box-shadow:var(--shadow);display:flex;gap:11px;align-items:center
-}
-.hero-note-mark{
-  width:34px;height:34px;border-radius:8px;background:var(--teal-soft);color:var(--teal);
-  display:grid;place-items:center
-}
-.hero-note strong{display:block;font-size:12px;color:var(--navy)}
-.hero-note span{font-size:11px;color:var(--muted)}
+.hero-tag{position:absolute;right:20px;bottom:28px;z-index:2;font-size:12px;color:#9FB2BF;writing-mode:vertical-rl;display:none}
+@keyframes rise{to{transform:none}}@keyframes fade{to{opacity:1}}@keyframes settle{from{transform:scale(1.12)}to{transform:scale(1)}}
 
-/* GENERAL SECTIONS */
-.section{padding:82px 0}
-.section.soft{background:var(--off-white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.section-head{max-width:700px;margin:0 auto 42px}
-.section-head.left{margin-left:0}
-.kicker{
-  color:var(--teal);font-size:12px;font-weight:800;text-transform:uppercase;
-  letter-spacing:1px;margin-bottom:10px
-}
-.section h2{
-  color:var(--navy);font-size:clamp(2rem,3.5vw,2.85rem);
-  line-height:1.15;letter-spacing:-1.2px;margin-bottom:13px
-}
-.section-head p{color:var(--muted);font-size:15px}
-.center{text-align:center}
+/* sections */
+.section{padding:110px 0}
+.kicker{color:var(--teal);font-size:14px;font-weight:700;margin-bottom:14px}
+h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
+.lead{color:var(--muted);font-size:17px;max-width:560px;margin-top:16px}
 
-/* PILLARS */
-.pillars-grid{
-  display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);
-  border-radius:12px;overflow:hidden;background:#fff
-}
-.pillar{
-  padding:27px 22px;min-height:220px;border-right:1px solid var(--line);
-  transition:.2s;background:#fff
-}
-.pillar:last-child{border-right:0}
-.pillar:hover{background:#fbfefd}
-.pillar-icon{
-  width:42px;height:42px;border-radius:9px;background:var(--teal-soft);
-  color:var(--teal);display:grid;place-items:center;margin-bottom:20px
-}
-.pillar h3{font-size:15px;color:var(--navy);margin-bottom:8px}
-.pillar p{font-size:13px;color:var(--muted);line-height:1.65}
+/* principles */
+.principles{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.p-list{list-style:none}
+.p-list li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);position:relative}
+.p-list li:last-child{border-bottom:1px solid var(--line)}
+.p-list li:before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--teal);transition:width .6s var(--ease)}
+.p-list li:hover:before{width:100%}
+.p-list h3{font-size:19px;font-weight:700}.p-list p{color:var(--muted);font-size:15px}
 
-/* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.service{
-  background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px;
-  display:flex;flex-direction:column;min-height:100%
-}
-.service:hover{border-color:#c7e9e3;box-shadow:var(--shadow)}
-.service-top{display:flex;align-items:flex-start;gap:17px;margin-bottom:17px}
-.service-icon{
-  width:48px;height:48px;border-radius:10px;background:var(--navy);color:#fff;
-  display:grid;place-items:center;flex:none
-}
-.service h3{font-size:20px;line-height:1.25;color:var(--navy);margin-top:3px}
-.service>p{font-size:14px;color:var(--muted);margin-bottom:18px}
-.service-list{list-style:none;margin-bottom:24px}
-.service-list li{
-  display:flex;gap:10px;align-items:flex-start;padding:8px 0;
-  font-size:13px;color:#334155
-}
-.check{
-  width:20px;height:20px;border-radius:50%;background:var(--teal-soft);
-  color:var(--teal);display:grid;place-items:center;flex:none
-}
-.service .btn{margin-top:auto;align-self:flex-start}
+/* services */
+.services{background:var(--ink);color:#fff;padding:110px 0}
+.services h2{color:#fff}.services .lead{color:#9FB2BF}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+.svc{background:var(--ink);padding:44px 40px 40px;display:flex;flex-direction:column;transition:background .4s}
+.svc:hover{background:var(--ink2)}
+.svc h3{color:#fff;font-size:28px;margin-bottom:12px}
+.svc>p{color:#9FB2BF;font-size:15px;margin-bottom:24px}
+.svc ul{list-style:none;margin-bottom:32px}
+.svc li{padding:12px 0;border-top:1px solid rgba(255,255,255,.1);font-size:15px;color:#DCE6EC;display:flex;gap:12px;align-items:center;transition:padding .3s var(--ease),color .3s}
+.svc li:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+.svc li:hover{padding-left:10px;color:#fff}
+.svc .btn{margin-top:auto;align-self:flex-start}
 
-/* TRUST */
-.trust-grid{
-  display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center
-}
-.trust-images{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.trust-images img{
-  width:100%;height:390px;object-fit:cover;border-radius:12px;border:1px solid var(--line)
-}
-.trust-images img:first-child{margin-top:32px}
-.trust-images img:last-child{margin-top:-32px}
-.trust-list{list-style:none;margin-top:27px}
-.trust-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
-.trust-item:last-child{border-bottom:0}
-.trust-icon{
-  width:39px;height:39px;background:var(--teal-soft);color:var(--teal);
-  border-radius:8px;display:grid;place-items:center;flex:none
-}
-.trust-item h4{font-size:14px;color:var(--navy);margin-bottom:3px}
-.trust-item p{font-size:13px;color:var(--muted)}
+/* why */
+.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.why-wrap{position:relative}.why-img{position:relative;height:560px;border-radius:6px;overflow:hidden}
+.why-img img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;will-change:transform}
+.why ul{list-style:none;margin-top:30px}
+.why li{padding:18px 0;border-top:1px solid var(--line)}
+.why h3{font-size:18px;margin-bottom:4px}.why li p{color:var(--muted);font-size:15px}
 
-/* SUPPORT */
-.support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.support-card{
-  padding:25px;background:#fff;border:1px solid var(--line);border-radius:12px
-}
-.support-number{font-size:12px;color:var(--teal);font-weight:800;margin-bottom:17px}
-.support-card h3{font-size:16px;color:var(--navy);margin-bottom:7px}
-.support-card p{font-size:13px;color:var(--muted);margin-bottom:15px}
-.support-card ul{list-style:none}
-.support-card li{font-size:12px;color:#475569;padding:5px 0;border-top:1px solid #EEF2F5}
-.support-card li:before{content:"•";color:var(--teal);font-weight:800;margin-right:8px}
+/* support tabs */
+.support{background:var(--mist)}
+.tabs{display:flex;gap:6px;margin:40px 0 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tab{background:none;border:0;padding:14px 20px;font-weight:700;font-size:15px;color:var(--muted);position:relative}
+.tab:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--orange);transform:scaleX(0);transition:transform .35s var(--ease)}
+.tab[aria-selected=true]{color:var(--ink)}.tab[aria-selected=true]:after{transform:scaleX(1)}
+.panel{display:none;grid-template-columns:1fr 1fr;gap:60px;padding-top:44px}
+.panel.on{display:grid;animation:swap .5s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.panel h3{font-size:30px;margin-bottom:12px}.panel p{color:var(--muted);max-width:420px}
+.panel ul{list-style:none;columns:1}
+.panel li{padding:14px 0;border-top:1px solid var(--line);font-weight:600;color:var(--ink);display:flex;justify-content:space-between}
+.panel li:last-child{border-bottom:1px solid var(--line)}
+.panel li .icon{color:var(--teal)}
 
-/* HOW IT WORKS */
-.process{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line)
-}
-.step{padding:28px 22px;border-right:1px solid var(--line);position:relative}
-.step:last-child{border-right:0}
-.step-no{
-  width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;
-  display:grid;place-items:center;font-size:12px;font-weight:800;margin-bottom:18px
-}
-.step h3{font-size:15px;color:var(--navy);margin-bottom:7px}
-.step p{font-size:12px;color:var(--muted);line-height:1.65}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;margin-top:64px;position:relative}
+.rail{position:absolute;left:0;right:0;top:17px;height:2px;background:var(--line)}
+.rail i{display:block;height:100%;background:var(--teal);width:0;transition:width 1.6s var(--ease)}
+.steps.go .rail i{width:100%}
+.step{position:relative;padding-top:50px}
+.step b{position:absolute;top:0;left:0;width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--ink);transition:background .4s,border-color .4s,color .4s}
+.steps.go .step b{background:var(--teal);border-color:var(--teal);color:#fff}
+.steps.go .step:nth-child(3) b{transition-delay:.3s}.steps.go .step:nth-child(4) b{transition-delay:.6s}.steps.go .step:nth-child(5) b{transition-delay:.9s}.steps.go .step:nth-child(6) b{transition-delay:1.2s}
+.step h3{font-size:19px;margin-bottom:6px}.step p{font-size:14px;color:var(--muted)}
 
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:start}
-.contact-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
-.form-group{margin-bottom:17px}
-.form-group label{display:block;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:7px}
-.form-control{
-  width:100%;border:1px solid #D7DEE7;border-radius:8px;padding:11px 12px;
-  background:#FBFCFD;color:var(--text);outline:none;font-size:13px;transition:.2s
-}
-.form-control:focus{border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(0,168,143,.09)}
-textarea.form-control{min-height:125px;resize:vertical}
-.checkbox{display:flex;align-items:flex-start;gap:9px;margin:3px 0 20px}
-.checkbox input{accent-color:var(--teal);margin-top:3px}
-.checkbox label{font-size:11px;color:var(--muted)}
-.alert{display:none;padding:12px;border-radius:8px;font-size:12px;font-weight:600;margin-bottom:16px}
-.alert.success{display:block;background:#ECFDF5;color:#047857;border:1px solid #A7F3D0}
-.alert.error{display:block;background:#FEF2F2;color:#B91C1C;border:1px solid #FECACA}
-.contact-side{display:grid;gap:12px}
-.contact-image{height:235px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-.contact-image img{width:100%;height:100%;object-fit:cover}
-.contact-image-panel{height:100%;min-height:360px;background:linear-gradient(145deg,var(--primary),#234b73);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:48px;color:#fff;position:relative;overflow:hidden}
-.contact-image-panel::after{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-90px;bottom:-90px}
-.contact-image-mark{width:52px;height:52px;border:1px solid rgba(255,255,255,.28);border-radius:12px;display:grid;place-items:center;margin-bottom:24px}
-.contact-image-mark svg{width:24px;height:24px;fill:currentColor}
-.contact-image-panel span{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:8px}
-.contact-image-panel strong{font-size:26px;line-height:1.25;max-width:300px;font-weight:700}
-.contact-info{
-  display:flex;gap:13px;align-items:center;padding:16px;border:1px solid var(--line);
-  border-radius:10px;background:#fff
-}
-.contact-info-icon{
-  width:40px;height:40px;background:var(--teal);color:#fff;border-radius:8px;
-  display:grid;place-items:center;flex:none
-}
-.contact-info small{display:block;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-size:9px;font-weight:800}
-.contact-info strong{font-size:13px;color:var(--navy);display:block;margin-top:2px}
+/* contact */
+.contact{background:var(--mist)}
+.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;margin-top:48px;align-items:start}
+.card{background:#fff;border-radius:6px;padding:38px;border:1px solid var(--line)}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.fc{width:100%;border:1px solid #CDD7DC;border-radius:6px;padding:12px 14px;background:#fff;color:var(--text);font-size:15px;transition:border-color .2s,box-shadow .2s}
+.fc:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,168,143,.14)}
+textarea.fc{min-height:130px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;margin:4px 0 22px}.check input{accent-color:var(--teal);margin-top:5px}.check label{font-size:13px;color:var(--muted)}
+.alert{display:none;padding:13px 15px;border-radius:6px;font-size:14px;font-weight:600;margin-bottom:18px}
+.alert.success{display:block;background:#E8F8F0;color:#0A6B45}.alert.error{display:block;background:#FDECEC;color:#A32020}
+.info{list-style:none}
+.info li{padding:20px 0;border-bottom:1px solid var(--line)}.info li:first-child{padding-top:0}
+.info small{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}.info strong{font-size:17px;color:var(--ink);font-weight:600;overflow-wrap:anywhere}
 
-/* CTA */
-.cta{
-  background:var(--navy);color:#fff;padding:48px 0
-}
-.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
-.cta h2{color:#fff;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:7px;letter-spacing:-1px}
-.cta p{color:#B9C5D3;font-size:14px}
+/* footer */
+footer{background:var(--ink);color:#fff;padding:90px 0 28px}
+.big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;max-width:16ch;margin-bottom:56px}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:40px;padding-top:44px;border-top:1px solid rgba(255,255,255,.14)}
+.f-col h4{font-size:14px;margin-bottom:14px}
+.f-col p,.f-col a,.f-col li{color:#9FB2BF;font-size:14px;line-height:2}.f-col ul{list-style:none}.f-col a:hover{color:var(--teal)}
+.f-logo{height:42px;width:auto;margin-bottom:14px}
+.socials{display:flex;gap:8px;margin-top:14px}.socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.16);border-radius:6px;display:grid;place-items:center;color:#fff;transition:background .25s,border-color .25s}.socials a:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.f-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;font-size:12px;color:#6F8595}
 
-/* FOOTER */
-footer{background:#071522;color:#fff;padding:58px 0 25px}
-.footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.15fr;gap:40px}
-.footer-logo{height:45px;width:auto;margin-bottom:17px}
-.footer-col p,.footer-col li,.footer-col a{color:#91A0B2;font-size:12px;line-height:1.8}
-.footer-col h3{font-size:13px;margin-bottom:15px;color:#fff}
-.footer-col ul{list-style:none}
-.footer-col li{margin-bottom:5px}
-.footer-col a:hover{color:var(--teal)}
-.socials{display:flex;gap:8px;margin-top:17px}
-.social{
-  width:34px;height:34px;border:1px solid rgba(255,255,255,.1);border-radius:8px;
-  display:grid;place-items:center;color:#fff
-}
-.social:hover{background:var(--teal);border-color:var(--teal)}
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,.09);margin-top:42px;padding-top:19px;
-  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
-}
-.footer-bottom p{font-size:11px;color:#66768A}
+/* single scroll reveal for images/panels only */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
 
-/* ANIMATION - deliberately subtle */
-.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
-.reveal.active{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
-
-/* RESPONSIVE */
 @media(max-width:1050px){
-  .nav-links,.desktop-cta{display:none}
-  .menu-btn{display:flex}
-  .hero-grid,.trust-grid,.contact-grid{grid-template-columns:1fr}
-  .hero{padding:65px 0}
-  .hero-visual{max-width:720px}
-  .hero-visual img{height:430px}
-  .pillars-grid{grid-template-columns:repeat(3,1fr)}
-  .pillar:nth-child(3){border-right:0}
-  .pillar:nth-child(4),.pillar:nth-child(5){border-top:1px solid var(--line)}
-  .process{grid-template-columns:repeat(3,1fr)}
-  .step:nth-child(3){border-right:0}
-  .step:nth-child(n+4){border-top:1px solid var(--line)}
-  .footer-grid{grid-template-columns:1.5fr 1fr 1fr}
+ .float-card{display:none}.tri{grid-template-columns:1fr 1fr}.tri figure:nth-child(3){display:none}.why-img2{right:10px;bottom:-24px}
+ .nav-links,.desktop-cta{display:none}.menu-btn{display:flex}
+ .principles,.why,.contact-grid{grid-template-columns:1fr;gap:44px}
+ .steps{grid-template-columns:repeat(3,1fr);row-gap:40px}.rail{display:none}
+ .f-grid{grid-template-columns:1fr 1fr}.why-img{height:420px}
 }
 @media(max-width:720px){
-  .container{width:min(var(--max),calc(100% - 28px))}
-  .section{padding:60px 0}
-  .hero{padding:52px 0 55px}
-  .hero h1{letter-spacing:-1.6px}
-  .hero p{font-size:15px}
-  .hero-actions{display:grid;grid-template-columns:1fr}
-  .hero-actions .btn{width:100%}
-  .hero-visual img{height:330px}
-  .hero-note{left:20px;bottom:20px}
-  .pillars-grid,.services-grid,.support-grid,.process{grid-template-columns:1fr}
-  .pillar,.step{border-right:0;border-bottom:1px solid var(--line)}
-  .pillar:last-child,.step:last-child{border-bottom:0}
-  .pillar:nth-child(n){border-top:0}
-  .trust-images{grid-template-columns:1fr 1fr}
-  .trust-images img{height:260px}
-  .trust-images img:first-child{margin-top:20px}
-  .trust-images img:last-child{margin-top:-20px}
-  .form-grid{grid-template-columns:1fr}
-  .contact-card{padding:23px 18px}
-  .cta-inner{display:grid}
-  .cta .btn{width:100%}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+ .tri{grid-template-columns:1fr}.tri figure,.tri figure:nth-child(2){height:320px;margin-top:0}.why-img2{width:52%;height:140px}
+ .section,.services{padding:72px 0}
+ .svc-grid{grid-template-columns:1fr}.svc{padding:34px 24px}
+ .p-list li{grid-template-columns:1fr;gap:6px}
+ .panel.on{grid-template-columns:1fr;gap:28px}
+ .steps{grid-template-columns:1fr}.step{padding:0 0 0 54px}
+ .fg2{grid-template-columns:1fr}.card{padding:24px 18px}
+ .hero .wrap{padding-bottom:48px}.hero-actions{width:100%}.hero-actions .btn{flex:1}
+ .tab{padding:12px 12px;font-size:14px}
 }
-@media(max-width:480px){
-  .logo img{height:38px}
-  .hero-visual{padding:6px}
-  .hero-visual img{height:270px}
-  .trust-images{gap:8px}
-  .trust-images img{height:220px}
-  .footer-grid{grid-template-columns:1fr}
-}
+@media(max-width:480px){.f-grid{grid-template-columns:1fr}.logo img{height:36px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.line>span{transform:none}.hero-foot,.rv,.stg>*,.float-card{opacity:1;transform:none}.mask{clip-path:none}.mask img{transform:none}.steps .rail i{width:100%}html{scroll-behavior:auto}}
 </style>
 </head>
-
 <body>
+<div class="progress" id="progress"></div>
 
-<header class="site-header">
-  <div class="container nav">
-    <a class="logo" href="#top" aria-label="MedEthyx home">
-      <img src="logo.jpg" alt="MedEthyx" onerror="this.src='https://via.placeholder.com/180x50?text=MedEthyx'">
-    </a>
-
-    <nav aria-label="Main navigation">
-      <ul class="nav-links">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#support">Who We Support</a></li>
-        <li><a href="#process">How It Works</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <a href="#contact" class="btn btn-orange desktop-cta">Book a Consultation</a>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-      <svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-    </button>
+<header class="site-header" id="header">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="MedEthyx home"><img id="logoImg" src="logo.jpg" alt="MedEthyx" onerror="this.src='https://via.placeholder.com/180x50?text=MedEthyx'"></a>
+    <nav aria-label="Main navigation"><ul class="nav-links">
+      <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#support">Who we support</a></li><li><a href="#process">How it works</a></li><li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a href="#contact" class="btn btn-orange desktop-cta">Book a consultation</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button>
   </div>
 </header>
-
 <div class="mobile-overlay" id="overlay"></div>
 <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <ul>
-    <li><a href="#about" class="mobile-link">About Us</a></li>
-    <li><a href="#services" class="mobile-link">Services</a></li>
-    <li><a href="#support" class="mobile-link">Who We Support</a></li>
-    <li><a href="#process" class="mobile-link">How It Works</a></li>
-    <li><a href="#contact" class="mobile-link">Contact</a></li>
-  </ul>
-  <a href="#contact" class="btn btn-orange mobile-link">Book a Consultation</a>
+  <ul><li><a href="#about" class="ml">About</a></li><li><a href="#services" class="ml">Services</a></li><li><a href="#support" class="ml">Who we support</a></li><li><a href="#process" class="ml">How it works</a></li><li><a href="#contact" class="ml">Contact</a></li></ul>
+  <a href="#contact" class="btn btn-orange ml">Book a consultation</a>
 </aside>
 
 <main id="top">
-
-<section class="hero" id="about">
-  <div class="container hero-grid">
-    <div class="reveal">
-      <div class="eyebrow">Ethical Healthcare & Research</div>
-      <h1>Building trust in healthcare and research.</h1>
-      <p>MedEthyx helps healthcare providers, laboratories, research institutions, sponsors, CROs and clinical research sites navigate ethics, compliance and research operations with confidence.</p>
+<section class="hero">
+  <div class="hero-bg" id="heroBg">
+    <video id="heroVid" autoplay muted loop playsinline preload="metadata" poster="media/hero-poster.jpg"><source src="media/hero.webm" type="video/webm"><source src="media/hero.mp4" type="video/mp4"></video>
+  </div>
+  <div class="float-card"><i></i><div><strong>Built for African healthcare</strong><span>Local realities. Global best practice.</span></div></div>
+  <div class="wrap">
+    <h1 aria-label="Building trust in healthcare and research.">
+      <span class="line"><span>Building trust</span></span>
+      <span class="line"><span>in healthcare</span></span>
+      <span class="line"><span>and research.</span></span>
+    </h1>
+    <div class="hero-foot">
+      <p>MedEthyx helps healthcare providers, laboratories, research institutions, sponsors, CROs and clinical research sites handle ethics, compliance and research operations with confidence.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-orange">Let's Discuss Your Needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="#services" class="btn btn-outline">Explore Our Services <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#contact" class="btn btn-orange">Discuss your needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#services" class="btn btn-ghost">Our services</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="hero-visual reveal">
-      <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80" alt="Healthcare research team">
-      <div class="hero-note">
-        <div class="hero-note-mark">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div><strong>Built for African Healthcare</strong><span>Local realities. Global best practice.</span></div>
-      </div>
+<div class="marquee" aria-hidden="true"><div><span>Healthcare ethics</span><span>Clinical research</span><span>Regulatory submissions</span><span>Governance</span><span>Compliance</span><span>Participant protection</span></div><div><span>Healthcare ethics</span><span>Clinical research</span><span>Regulatory submissions</span><span>Governance</span><span>Compliance</span><span>Participant protection</span></div></div>
+
+<section class="section" id="about">
+  <div class="wrap principles">
+    <div>
+      <div class="kicker">What guides us</div>
+      <h2>Ethical practice, trusted support, better outcomes.</h2>
+      <p class="lead">Practical advisory support with a firm focus on ethics, compliance, research quality and people.</p>
+    </div>
+    <ul class="p-list stg">
+      <li><h3>Ethics at the core</h3><p>Every engagement is grounded in ethical practice, accountability and trust.</p></li>
+      <li><h3>Compliance you can trust</h3><p>We help organisations work through requirements and stay ready for review and audit.</p></li>
+      <li><h3>People centred</h3><p>Protecting patient and participant rights while improving the experience of care and research.</p></li>
+      <li><h3>Built for Africa</h3><p>Solutions shaped by local realities and informed by global best practice.</p></li>
+      <li><h3>Long-term partnerships</h3><p>Working alongside organisations to strengthen systems, capacity and impact.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="kicker">Our services</div>
+    <h2>Support where it matters.</h2>
+    <p class="lead">Healthcare ethics, clinical research, governance and research quality.</p>
+    <div class="svc-grid">
+      <article class="svc">
+        <h3>Healthcare ethics support</h3>
+        <p>We partner with healthcare organisations to strengthen ethical practice, protect patients and build trust.</p>
+        <ul class="stg"><li>Ethics advisory services</li><li>Professional ethics training</li><li>Ethical policy development</li><li>Patient-centred care initiatives</li><li>Healthcare governance support</li></ul>
+        <a href="#contact" class="btn btn-ghost">Discuss your ethics needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="svc">
+        <h3>Clinical research support</h3>
+        <p>Practical systems, coordination and quality across the whole study lifecycle.</p>
+        <ul class="stg"><li>Research site setup and support</li><li>Regulatory and ethics submissions</li><li>Study logistics and coordination</li><li>Participant engagement and recruitment</li><li>Research quality management</li></ul>
+        <a href="#contact" class="btn btn-ghost">Discuss your research needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="kicker">The people behind safe care</div>
+    <h2>Trust is built by clinicians, researchers and communities.</h2>
+    <div class="tri">
+      <figure class="mask ph"><img src="media/doctor-1.jpg" alt="African doctor consulting with a patient" onerror="this.remove()"><figcaption>Patient-centred care</figcaption></figure>
+      <figure class="mask ph" style="transition-delay:.15s"><img src="media/doctor-2.jpg" alt="African researcher working in a laboratory" onerror="this.remove()"><figcaption>Rigorous research</figcaption></figure>
+      <figure class="mask ph" style="transition-delay:.3s"><img src="media/doctor-3.jpg" alt="African healthcare team in discussion" onerror="this.remove()"><figcaption>Accountable teams</figcaption></figure>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="kicker">What guides us</div>
-      <h2>Ethical practice. Trusted support. Better outcomes.</h2>
-      <p>We combine practical advisory support with a strong focus on ethics, compliance, research quality and people.</p>
-    </div>
-
-    <div class="pillars-grid">
-      <article class="pillar reveal">
-        <div class="pillar-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Ethics at the Core</h3>
-        <p>Every engagement is grounded in ethical practice, accountability and trust.</p>
-      </article>
-      <article class="pillar reveal">
-        <div class="pillar-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M16 16v1a2 2 0 01-2 2H3a2 2 0 01-2-2V7a2 2 0 012-2h11a2 2 0 012 2v1m-4 4l-4-4m0 0l-4 4m4-4v12"/></svg></div>
-        <h3>Compliance You Can Trust</h3>
-        <p>Helping organisations navigate requirements and remain prepared for review and audit.</p>
-      </article>
-      <article class="pillar reveal">
-        <div class="pillar-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-        <h3>People Centred</h3>
-        <p>Protecting patient and participant rights while improving the experience of care and research.</p>
-      </article>
-      <article class="pillar reveal">
-        <div class="pillar-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-        <h3>Built for Africa</h3>
-        <p>Solutions shaped by local realities and informed by global best practice.</p>
-      </article>
-      <article class="pillar reveal">
-        <div class="pillar-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-        <h3>Long-Term Partnerships</h3>
-        <p>Working alongside organisations to strengthen systems, capacity and impact.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section soft" id="services">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="kicker">Our services</div>
-      <h2>Support where it matters.</h2>
-      <p>Practical support for healthcare ethics, clinical research, governance and research quality.</p>
-    </div>
-
-    <div class="services-grid">
-      <article class="service reveal">
-        <div>
-          <div class="service-top">
-            <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <h3>Healthcare Ethics Support</h3>
-          </div>
-          <p>We partner with healthcare organisations to strengthen ethical practice, protect patients and build trust.</p>
-          <ul class="service-list">
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Ethics advisory services</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Professional ethics training</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Ethical policy development</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Patient-centred care initiatives</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Healthcare governance support</li>
-          </ul>
-        </div>
-        <a href="#contact" class="btn btn-outline">Discuss Your Ethics Needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </article>
-
-      <article class="service reveal">
-        <div>
-          <div class="service-top">
-            <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M10 2v7.31L4.75 18.2a2 2 0 001.7 2.8h11.1a2 2 0 001.7-2.8L14 9.31V2"/></svg></div>
-            <h3>Clinical Research Support</h3>
-          </div>
-          <p>We support research organisations with practical systems, coordination and quality throughout the study lifecycle.</p>
-          <ul class="service-list">
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Research site setup and support</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Regulatory and ethics submissions</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Study logistics and coordination</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Participant engagement and recruitment</li>
-            <li><span class="check"><svg class="icon" viewBox="0 0 24 24" style="width:13px"><polyline points="20 6 9 17 4 12"/></svg></span>Research quality management</li>
-          </ul>
-        </div>
-        <a href="#contact" class="btn btn-outline">Discuss Your Research Needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="why">
-  <div class="container trust-grid">
-    <div class="trust-images reveal">
-      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Healthcare team discussion">
-      <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=80" alt="Clinical healthcare consultation">
-    </div>
-    <div class="reveal">
+  <div class="wrap why">
+    <div class="why-wrap rv"><div class="why-img ph"><img id="parallax" src="media/doctor-4.jpg" alt="African doctors discussing a case" onerror="this.remove()"></div><div class="why-img2 ph"><img src="media/doctor-5.jpg" alt="African doctor with clipboard" onerror="this.remove()"></div></div>
+    <div class="rv">
       <div class="kicker">Why MedEthyx</div>
       <h2>Practical support built around trust.</h2>
-      <p style="color:var(--muted);font-size:15px">From individual practices to multi-centre research programmes, we focus on clear guidance, responsible practice and workable systems.</p>
-      <ul class="trust-list">
-        <li class="trust-item"><div class="trust-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>Ethics at the Core</h4><p>Every engagement is grounded in ethical practice, accountability and trust.</p></div></li>
-        <li class="trust-item"><div class="trust-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div><div><h4>Trusted Support</h4><p>Responsive guidance tailored to the organisation, project and challenge.</p></div></li>
-        <li class="trust-item"><div class="trust-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.72-8.72a5.5 5.5 0 000-7.9z"/></svg></div><div><h4>Patient & Participant Focused</h4><p>Helping organisations build trust and improve experiences.</p></div></li>
-        <li class="trust-item"><div class="trust-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div><h4>Built for African Healthcare & Research</h4><p>Solutions shaped by local realities and informed by global best practice.</p></div></li>
+      <p class="lead">From individual practices to multi-centre research programmes: clear guidance, responsible practice and workable systems.</p>
+      <ul>
+        <li><h3>Trusted support</h3><p>Responsive guidance tailored to your organisation, project and challenge.</p></li>
+        <li><h3>Patient and participant focused</h3><p>We help organisations build trust and improve experiences.</p></li>
+        <li><h3>Built for African healthcare and research</h3><p>Local realities, global best practice.</p></li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="section soft" id="support">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="kicker">Who we support</div>
-      <h2>Support for organisations at every stage.</h2>
-      <p>Our work is designed around the needs of healthcare providers, researchers, research sites and supporting organisations.</p>
+<section class="section support" id="support">
+  <div class="wrap">
+    <div class="kicker">Who we support</div>
+    <h2>Organisations at every stage.</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-t="0">Healthcare providers</button>
+      <button class="tab" role="tab" aria-selected="false" data-t="1">Researchers and institutions</button>
+      <button class="tab" role="tab" aria-selected="false" data-t="2">Sponsors and CROs</button>
     </div>
-    <div class="support-grid">
-      <article class="support-card reveal"><div class="support-number">01 / HEALTHCARE</div><h3>Healthcare Providers</h3><p>Hospitals, clinics, dental practices and healthcare networks.</p><ul><li>Ethics frameworks</li><li>Governance support</li><li>Policy development</li><li>Staff training</li><li>Compliance assessments</li></ul></article>
-      <article class="support-card reveal"><div class="support-number">02 / RESEARCH</div><h3>Researchers & Institutions</h3><p>Universities, research institutes and independent research teams.</p><ul><li>Protocol support</li><li>Ethics submissions</li><li>Research governance</li><li>Participant protection</li><li>Research quality</li></ul></article>
-      <article class="support-card reveal"><div class="support-number">03 / INDUSTRY</div><h3>Sponsors & CROs</h3><p>Organisations managing clinical research and study delivery.</p><ul><li>Site feasibility</li><li>Site identification</li><li>Site start-up</li><li>Regulatory coordination</li><li>Quality oversight</li></ul></article>
-    </div>
+    <div class="panel on" role="tabpanel"><div><h3>Healthcare providers</h3><p>Hospitals, clinics, dental practices and healthcare networks.</p></div>
+      <ul><li>Ethics frameworks<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Governance support<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Policy development<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Staff training<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Compliance assessments<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li></ul></div>
+    <div class="panel" role="tabpanel"><div><h3>Researchers and institutions</h3><p>Universities, research institutes and independent research teams.</p></div>
+      <ul><li>Protocol support<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Ethics submissions<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Research governance<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Participant protection<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Research quality<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li></ul></div>
+    <div class="panel" role="tabpanel"><div><h3>Sponsors and CROs</h3><p>Organisations managing clinical research and study delivery.</p></div>
+      <ul><li>Site feasibility<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Site identification<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Site start-up<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Regulatory coordination<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Quality oversight<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li></ul></div>
   </div>
 </section>
 
 <section class="section" id="process">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="kicker">How it works</div>
-      <h2>A straightforward process.</h2>
-      <p>From the first conversation to ongoing support, we keep the process clear and practical.</p>
-    </div>
-    <div class="process">
-      <article class="step reveal"><div class="step-no">01</div><h3>Understand</h3><p>Tell us about your organisation, study or compliance challenge.</p></article>
-      <article class="step reveal"><div class="step-no">02</div><h3>Assess</h3><p>We assess the relevant ethics, research or compliance requirements.</p></article>
-      <article class="step reveal"><div class="step-no">03</div><h3>Plan</h3><p>We develop an appropriate support plan around your needs.</p></article>
-      <article class="step reveal"><div class="step-no">04</div><h3>Implement</h3><p>We support implementation, documentation, training and submissions.</p></article>
-      <article class="step reveal"><div class="step-no">05</div><h3>Monitor</h3><p>We help maintain quality, compliance and continuous improvement.</p></article>
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2>From first conversation to ongoing support.</h2>
+    <div class="steps" id="steps">
+      <div class="rail"><i></i></div>
+      <div class="step"><b>1</b><h3>Understand</h3><p>Tell us about your organisation, study or compliance challenge.</p></div>
+      <div class="step"><b>2</b><h3>Assess</h3><p>We review the relevant ethics, research or compliance requirements.</p></div>
+      <div class="step"><b>3</b><h3>Plan</h3><p>We build a support plan around your needs.</p></div>
+      <div class="step"><b>4</b><h3>Implement</h3><p>We support documentation, training and submissions.</p></div>
+      <div class="step"><b>5</b><h3>Monitor</h3><p>We help maintain quality, compliance and improvement.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section soft" id="contact">
-  <div class="container">
-    <div class="section-head left reveal">
-      <div class="kicker">Contact MedEthyx</div>
-      <h2>Let's start the conversation.</h2>
-      <p>Whether you need support with healthcare ethics or clinical research, tell us what you are working on.</p>
-    </div>
-
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="kicker">Contact MedEthyx</div>
+    <h2>Let's start the conversation.</h2>
+    <p class="lead">Whether you need support with healthcare ethics or clinical research, tell us what you are working on.</p>
     <div class="contact-grid">
-      <div class="contact-card reveal">
-        <div id="form-alert" class="alert"></div>
+      <div class="card">
+        <div id="form-alert" class="alert" role="status"></div>
         <form id="medethyx-form">
-          <div class="form-grid">
-            <div class="form-group"><label for="fullName">Full Name *</label><input class="form-control" id="fullName" name="fullName" required placeholder="Enter full name"></div>
-            <div class="form-group"><label for="organisation">Organisation *</label><input class="form-control" id="organisation" name="organisation" required placeholder="Organisation name"></div>
+          <div class="fg2">
+            <div class="fg"><label for="fullName">Full name *</label><input class="fc" id="fullName" name="fullName" required placeholder="Enter full name"></div>
+            <div class="fg"><label for="organisation">Organisation *</label><input class="fc" id="organisation" name="organisation" required placeholder="Organisation name"></div>
           </div>
-          <div class="form-grid">
-            <div class="form-group"><label for="emailAddress">Email Address *</label><input type="email" class="form-control" id="emailAddress" name="emailAddress" required placeholder="name@domain.com"></div>
-            <div class="form-group"><label for="phoneNumber">Phone Number</label><input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="+27 / +263 ..."></div>
+          <div class="fg2">
+            <div class="fg"><label for="emailAddress">Email address *</label><input type="email" class="fc" id="emailAddress" name="emailAddress" required placeholder="name@domain.com"></div>
+            <div class="fg"><label for="phoneNumber">Phone number</label><input type="tel" class="fc" id="phoneNumber" name="phoneNumber" placeholder="+27 / +263 ..."></div>
           </div>
-          <div class="form-group">
-            <label for="helpTopic">How can we help? *</label>
-            <select class="form-control" id="helpTopic" name="helpTopic" required>
+          <div class="fg"><label for="helpTopic">How can we help? *</label>
+            <select class="fc" id="helpTopic" name="helpTopic" required>
               <option value="" disabled selected>Select an option</option>
-              <option value="Healthcare Ethics Support">Healthcare Ethics Support</option>
-              <option value="Clinical Research Support">Clinical Research Support</option>
-              <option value="General Enquiry">General Enquiry</option>
-              <option value="Partnership Opportunity">Partnership Opportunity</option>
-              <option value="Training & Capacity Building">Training & Capacity Building</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group"><label for="needs">Tell Us About Your Needs *</label><textarea class="form-control" id="needs" name="needs" required placeholder="Please share a brief overview of your needs..."></textarea></div>
-          <div class="checkbox"><input type="checkbox" id="consent" name="consent" required><label for="consent">I agree to be contacted by MedEthyx regarding my enquiry.</label></div>
-          <button type="submit" id="submit-btn" class="btn btn-orange" style="width:100%">Submit Enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+              <option>Healthcare Ethics Support</option><option>Clinical Research Support</option><option>General Enquiry</option><option>Partnership Opportunity</option><option>Training &amp; Capacity Building</option><option>Other</option>
+            </select></div>
+          <div class="fg"><label for="needs">Tell us about your needs *</label><textarea class="fc" id="needs" name="needs" required placeholder="Please share a brief overview of your needs..."></textarea></div>
+          <div class="check"><input type="checkbox" id="consent" name="consent" required><label for="consent">I agree to be contacted by MedEthyx regarding my enquiry.</label></div>
+          <button type="submit" id="submit-btn" class="btn btn-orange" style="width:100%">Send enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
         </form>
       </div>
-
-      <div class="contact-side reveal">
-        <div class="contact-image" aria-hidden="true">
-          <div class="contact-image-panel">
-            <div class="contact-image-mark">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
-            </div>
-            <span>Let's discuss your needs</span>
-            <strong>Healthcare &amp; Research Support</strong>
-          </div>
-        </div>
-        <div class="contact-info"><div class="contact-info-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></div><div><small>Email</small><strong>let'sconnect@medethyx.co.zw</strong></div></div>
-        <div class="contact-info"><div class="contact-info-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.11 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><small>Phone</small><strong>+27 10 312 6200</strong></div></div>
-        <div class="contact-info"><div class="contact-info-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><small>Location</small><strong>Serving Organisations Across Africa</strong></div></div>
-        <div class="contact-info"><div class="contact-info-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><small>Response Time</small><strong>We aim to respond within two business days.</strong></div></div>
-      </div>
+      <ul class="info">
+        <li><small>Email</small><strong>let'sconnect@medethyx.co.zw</strong></li>
+        <li><small>Phone</small><strong>+27 10 312 6200</strong></li>
+        <li><small>Where we work</small><strong>Serving organisations across Africa</strong></li>
+        <li><small>Response time</small><strong>We aim to respond within two business days.</strong></li>
+      </ul>
     </div>
   </div>
 </section>
-
-<section class="cta">
-  <div class="container cta-inner">
-    <div><h2>Ready to discuss your healthcare or research needs?</h2><p>Let's have a practical conversation about how MedEthyx can support you.</p></div>
-    <a href="#contact" class="btn btn-orange">Request a Consultation <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-  </div>
-</section>
-
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <img class="footer-logo" src="logo2.jpg" alt="MedEthyx" onerror="this.src='https://via.placeholder.com/180x50?text=MedEthyx'">
-        <p>Supporting ethical healthcare and research at every step — with practical, trusted support.</p>
+  <div class="wrap">
+    <div class="big">Ready to talk about your healthcare or research needs?</div>
+    <a href="#contact" class="btn btn-orange">Request a consultation <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="f-grid" style="margin-top:70px">
+      <div class="f-col"><img class="f-logo" src="logo2.jpg" alt="MedEthyx" onerror="this.src='https://via.placeholder.com/180x50?text=MedEthyx'"><p>Supporting ethical healthcare and research at every step, with practical, trusted support.</p>
         <div class="socials">
-          <a class="social" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a class="social" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-          <a class="social" href="https://twitter.com" target="_blank" rel="noopener" aria-label="X"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-col"><h3>Navigate</h3><ul><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#support">Who We Support</a></li><li><a href="#process">How It Works</a></li><li><a href="#contact">Contact</a></li></ul></div>
-      <div class="footer-col"><h3>Services</h3><ul><li><a href="#services">Healthcare Ethics Support</a></li><li><a href="#services">Clinical Research Support</a></li><li><a href="#contact">Book a Consultation</a></li></ul></div>
-      <div class="footer-col"><h3>Contact</h3><p>let'sconnect@medethyx.co.zw</p><p>+27 10 312 6200</p><p>Serving Healthcare & Research Organisations Across Africa</p></div>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="X"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+        </div></div>
+      <div class="f-col"><h4>Navigate</h4><ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#support">Who we support</a></li><li><a href="#process">How it works</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Services</h4><ul><li><a href="#services">Healthcare ethics support</a></li><li><a href="#services">Clinical research support</a></li><li><a href="#contact">Book a consultation</a></li></ul></div>
+      <div class="f-col"><h4>Contact</h4><p>let'sconnect@medethyx.co.zw</p><p>+27 10 312 6200</p><p>Serving healthcare and research organisations across Africa</p></div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2026 MedEthyx. All rights reserved.</p><p>Powered by Electrify Technologies</p></div>
+    <div class="f-bottom"><span>&copy; 2026 MedEthyx. All rights reserved.</span><span>Powered by Electrify Technologies</span></div>
   </div>
 </footer>
 
 <script>
 (function(){
-  const menuBtn=document.getElementById('menuBtn');
-  const menu=document.getElementById('mobileMenu');
-  const overlay=document.getElementById('overlay');
-  const links=document.querySelectorAll('.mobile-link');
-
-  function closeMenu(){
-    menu.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.classList.remove('menu-open');
-    menuBtn.setAttribute('aria-expanded','false');
+  var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
+  var header=$('#header'),bar=$('#progress'),bg=$('#heroBg'),par=$('#parallax');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function onScroll(){
+    var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+    header.classList.toggle('solid',y>40);
+    if(reduce)return;
+    if(y<innerHeight*1.2)bg.style.transform='translateY('+(y*.18)+'px)';
+    var r=par.parentElement.getBoundingClientRect();
+    if(r.bottom>0&&r.top<innerHeight)par.style.transform='translateY('+((r.top+r.height/2-innerHeight/2)*-.08)+'px)';
   }
-  function toggleMenu(){
-    const open=!menu.classList.contains('active');
-    menu.classList.toggle('active',open);
-    overlay.classList.toggle('active',open);
-    document.body.classList.toggle('menu-open',open);
-    menuBtn.setAttribute('aria-expanded',String(open));
-  }
-  menuBtn.addEventListener('click',toggleMenu);
-  overlay.addEventListener('click',closeMenu);
-  links.forEach(link=>link.addEventListener('click',closeMenu));
+  addEventListener('scroll',function(){requestAnimationFrame(onScroll)},{passive:true});onScroll();
 
-  const reveals=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    const observer=new IntersectionObserver((entries,obs)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('active');
-          obs.unobserve(entry.target);
-        }
-      });
-    },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
-    reveals.forEach(el=>observer.observe(el));
-  }else{
-    reveals.forEach(el=>el.classList.add('active'));
-  }
+  var v=$('#heroVid');
+  if(reduce){v.remove()}else{v.addEventListener('canplay',function(){v.classList.add('on');v.play().catch(function(){})},{once:true});v.addEventListener('error',function(){v.remove()},true)}
+  var mb=$('#menuBtn'),menu=$('#mobileMenu'),ov=$('#overlay');
+  function setMenu(o){menu.classList.toggle('active',o);ov.classList.toggle('active',o);document.body.classList.toggle('menu-open',o);mb.setAttribute('aria-expanded',String(o))}
+  mb.addEventListener('click',function(){setMenu(!menu.classList.contains('active'))});
+  ov.addEventListener('click',function(){setMenu(false)});
+  $$('.ml').forEach(function(l){l.addEventListener('click',function(){setMenu(false)})});
 
-  const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwMXl3Lpy0l6umOImsvUz_stBSi1DRTPG83eMAhjm0vVFGBTYcM9tTUgzSJJfaqf7c/exec";
-  const form=document.getElementById('medethyx-form');
-  const alertBox=document.getElementById('form-alert');
-  const submitBtn=document.getElementById('submit-btn');
+  var tabs=$$('.tab'),panels=$$('.panel');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    var i=+t.dataset.t;
+    tabs.forEach(function(x,j){x.setAttribute('aria-selected',String(i===j))});
+    panels.forEach(function(p,j){p.classList.toggle('on',i===j)});
+  })});
 
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add(e.target.id==='steps'?'go':'in');io.unobserve(e.target)}})
+  },{threshold:.2}):null;
+  [].forEach.call($$('.rv,.mask,.stg,#steps'),function(el){io?io.observe(el):el.classList.add('in','go')});
+
+  var SCRIPT_URL="https://script.google.com/macros/s/AKfycbwMXl3Lpy0l6umOImsvUz_stBSi1DRTPG83eMAhjm0vVFGBTYcM9tTUgzSJJfaqf7c/exec";
+  var form=$('#medethyx-form'),box=$('#form-alert'),btn=$('#submit-btn');
+  var label='Send enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
   form.addEventListener('submit',function(e){
-    e.preventDefault();
-    submitBtn.disabled=true;
-    submitBtn.innerHTML='Submitting Enquiry...';
-    alertBox.className='alert';
-    alertBox.style.display='none';
-
-    const formData={
-      fullName:document.getElementById('fullName').value,
-      organisation:document.getElementById('organisation').value,
-      emailAddress:document.getElementById('emailAddress').value,
-      phoneNumber:document.getElementById('phoneNumber').value,
-      helpTopic:document.getElementById('helpTopic').value,
-      needs:document.getElementById('needs').value
-    };
-
-    fetch(SCRIPT_URL,{
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(formData)
-    })
-    .then(()=>{
-      alertBox.className='alert success';
-      alertBox.textContent='Thank you! Your enquiry has been submitted successfully to MedEthyx.';
-      alertBox.style.display='block';
-      form.reset();
-    })
-    .catch(error=>{
-      console.error(error);
-      alertBox.className='alert error';
-      alertBox.textContent='Something went wrong. Please contact us directly by email.';
-      alertBox.style.display='block';
-    })
-    .finally(()=>{
-      submitBtn.disabled=false;
-      submitBtn.innerHTML='Submit Enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-    });
+    e.preventDefault();btn.disabled=true;btn.textContent='Sending...';box.className='alert';
+    var d={fullName:$('#fullName').value,organisation:$('#organisation').value,emailAddress:$('#emailAddress').value,phoneNumber:$('#phoneNumber').value,helpTopic:$('#helpTopic').value,needs:$('#needs').value};
+    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+    .then(function(){box.className='alert success';box.textContent='Thank you. Your enquiry has been sent to MedEthyx.';form.reset()})
+    .catch(function(err){console.error(err);box.className='alert error';box.textContent='The enquiry did not send. Please email us directly.'})
+    .finally(function(){btn.disabled=false;btn.innerHTML=label});
   });
 })();
 </script>
