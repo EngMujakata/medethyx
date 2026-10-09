@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="MedEthyx provides trusted healthcare ethics, clinical research, governance and compliance support for organisations across Africa.">
 <meta name="theme-color" content="#0A1D2B">
-<meta name="color-scheme" content="light">
 <title>MedEthyx | Ethical Healthcare & Research</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://images.unsplash.com">
@@ -28,7 +27,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-heig
 .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,box-shadow .3s}
 .site-header.solid{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
 .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-.logo img{height:42px;width:auto;object-fit:contain}
+.logo{display:inline-flex;align-items:center;gap:10px;min-width:150px}.logo img{height:42px;width:auto;object-fit:contain}.logo-wordmark{display:none;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1}.solid .logo-wordmark{color:var(--ink)}.logo-wordmark span{color:var(--teal)}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-size:14px;font-weight:600;color:#fff;position:relative;padding:6px 0;transition:color .3s}
 .solid .nav-links a{color:var(--ink)}
@@ -51,7 +50,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-heig
 /* hero */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--ink);color:#fff;overflow:hidden}
 .hero-bg{position:absolute;inset:-6% 0;background:var(--ink) url("media/hero-poster.jpg") center/cover;animation:settle 2.4s var(--ease) both;will-change:transform}
-.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease;background:var(--ink);transform:scale(1.015);filter:saturate(.86) contrast(1.04)}
 .hero-bg video.on{opacity:1}
 .float-card{position:absolute;right:max(20px,calc((100% - var(--max))/2));top:34%;z-index:2;background:rgba(255,255,255,.96);color:var(--ink);padding:16px 20px;border-radius:10px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.25);opacity:0;animation:fade .8s 1.2s ease forwards,bob 5s 2s ease-in-out infinite}
 .float-card i{width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(0,168,143,.6);animation:pulse 2s infinite}
@@ -65,20 +64,33 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-heig
 .mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease)}.mask.in{clip-path:inset(0)}
 .mask img{transform:scale(1.25);transition:transform 1.8s var(--ease)}.mask.in img{transform:scale(1)}
 .ph{background:linear-gradient(135deg,var(--ink2),var(--teal))}
-.tri{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-top:56px}
+.tri{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-top:32px}
 .tri figure{position:relative;height:440px;overflow:hidden;border-radius:6px}
 .tri figure:nth-child(2){margin-top:48px}.tri figure:nth-child(3){margin-top:96px;height:344px}
 .tri img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .tri figcaption{position:absolute;left:0;right:0;bottom:0;padding:50px 20px 18px;color:#fff;font-weight:600;font-size:15px;background:linear-gradient(transparent,rgba(10,29,43,.85));transform:translateY(8px);opacity:.9;transition:transform .5s var(--ease)}
 .tri figure:hover figcaption{transform:none}
+/* Keep the people-to-why transition compact: avoid an oversized blank band. */
+#people.section{padding-top:62px;padding-bottom:28px}
+#people + .why-section{padding-top:58px}
+.tri figure{background:#dce7e8}
+.tri figure:nth-child(2) img{filter:grayscale(100%);}
+.tri figure:nth-child(2):hover img{filter:grayscale(35%)}
+.tri img{transition:transform .8s var(--ease),filter .5s}
+.tri figure:hover img{transform:scale(1.045)}
+.btn{min-height:48px}
+.btn-orange{box-shadow:0 8px 22px rgba(255,107,53,.16)}
+.btn-orange:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,107,53,.23)}
+.site-header.solid{border-bottom:1px solid rgba(10,29,43,.05)}
+@media(prefers-reduced-motion:reduce){.hero-bg video{display:none}}
 .why-img2{position:absolute;right:-30px;bottom:-30px;width:46%;height:200px;border:6px solid #fff;border-radius:6px;overflow:hidden;z-index:2;box-shadow:0 20px 40px rgba(10,29,43,.2)}
 .why-img2 img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .stg>*{opacity:0;transform:translateX(-18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .stg.in>*{opacity:1;transform:none}
 .stg.in>*:nth-child(2){transition-delay:.1s}.stg.in>*:nth-child(3){transition-delay:.2s}.stg.in>*:nth-child(4){transition-delay:.3s}.stg.in>*:nth-child(5){transition-delay:.4s}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,29,43,.55) 0%,rgba(10,29,43,.78) 55%,var(--ink) 100%)}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,22,34,.82) 0%,rgba(7,22,34,.59) 56%,rgba(7,22,34,.30) 100%),linear-gradient(0deg,rgba(7,22,34,.9) 0%,rgba(7,22,34,.08) 72%)}
 .hero .wrap{position:relative;z-index:2;padding:150px 0 70px}
-.hero h1{color:#fff;font-size:clamp(2.8rem,7.4vw,6.2rem);font-weight:800;letter-spacing:-.035em;max-width:11.5ch;margin-bottom:28px}
+.hero h1{color:#fff;font-size:clamp(2.8rem,7.4vw,6.2rem);font-weight:800;letter-spacing:-.035em;max-width:11.5ch;margin-bottom:28px;text-wrap:balance}
 .line{display:block;overflow:hidden;padding-bottom:.08em}
 .line>span{display:block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
 .line:nth-child(2)>span{animation-delay:.12s}.line:nth-child(3)>span{animation-delay:.24s}
@@ -89,7 +101,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-heig
 @keyframes rise{to{transform:none}}@keyframes fade{to{opacity:1}}@keyframes settle{from{transform:scale(1.12)}to{transform:scale(1)}}
 
 /* sections */
-.section{padding:110px 0}
+.section{padding:96px 0}
 .kicker{color:var(--teal);font-size:14px;font-weight:700;margin-bottom:14px}
 h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .lead{color:var(--muted);font-size:17px;max-width:560px;margin-top:16px}
@@ -181,50 +193,6 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
 /* single scroll reveal for images/panels only */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
 
-/* refined premium details */
-::selection{background:rgba(0,168,143,.22);color:var(--ink)}
-.site-header{border-bottom:1px solid transparent}
-.site-header.solid{border-bottom-color:rgba(10,29,43,.06)}
-.logo{display:inline-flex;align-items:center;gap:10px;min-width:150px}
-.logo img{max-width:180px}
-.logo-wordmark{display:none;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1}
-.solid .logo-wordmark{color:var(--ink)}
-.logo-wordmark span{color:var(--teal)}
-.hero{isolation:isolate}
-.hero-bg{background-color:var(--ink);background-position:center 42%;}
-.hero-bg video{filter:saturate(.82) contrast(1.04);transform:scale(1.015)}
-.hero:before{background:linear-gradient(90deg,rgba(7,22,34,.83) 0%,rgba(7,22,34,.58) 55%,rgba(7,22,34,.25) 100%),linear-gradient(0deg,rgba(7,22,34,.88) 0%,rgba(7,22,34,.08) 70%)}
-.hero .wrap{padding-bottom:clamp(54px,8vh,100px)}
-.hero h1{max-width:12ch;text-wrap:balance}
-.hero p{max-width:570px}
-.btn{min-height:48px}
-.btn-orange{box-shadow:0 8px 22px rgba(255,107,53,.18)}
-.btn-orange:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,107,53,.24)}
-.section{overflow:clip}
-.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-.svc{position:relative;overflow:hidden}
-.svc:after{content:"";position:absolute;top:0;left:0;width:3px;height:0;background:var(--teal);transition:height .45s var(--ease)}
-.svc:hover:after{height:100%}
-.tri figure,.why-img,.why-img2{background:#dce7e8}
-.tri img,.why-img img,.why-img2 img{transition:transform .8s var(--ease),filter .5s}
-.tri figure:hover img{transform:scale(1.045);filter:saturate(1.05)}
-.tri figure:nth-child(2) img{filter:grayscale(100%)}.tri figure:nth-child(2):hover img{filter:grayscale(35%)}
-.card{box-shadow:0 16px 48px rgba(10,29,43,.045)}
-.fc{min-height:48px}
-textarea.fc{min-height:140px}
-.btn:focus-visible,.tab:focus-visible,.menu-btn:focus-visible{outline-offset:4px}
-.mobile-menu{box-shadow:-20px 0 60px rgba(10,29,43,.12)}
-@media(max-width:720px){
- .hero{min-height:92svh;min-height:92vh}
- .hero:before{background:linear-gradient(90deg,rgba(7,22,34,.76),rgba(7,22,34,.45)),linear-gradient(0deg,rgba(7,22,34,.9),rgba(7,22,34,.08) 80%)}
- .hero h1{font-size:clamp(2.7rem,12vw,4.7rem)}
- .hero p{font-size:16px}
- .hero-actions .btn{padding:13px 14px;font-size:13px}
- .marquee div{font-size:17px;gap:28px}
- .marquee span:after{margin-left:28px}
-}
-@media(prefers-reduced-motion:reduce){.hero-bg video{display:none}}
-
 @media(max-width:1050px){
  .float-card{display:none}.tri{grid-template-columns:1fr 1fr}.tri figure:nth-child(3){display:none}.why-img2{right:10px;bottom:-24px}
  .nav-links,.desktop-cta{display:none}.menu-btn{display:flex}
@@ -233,6 +201,12 @@ textarea.fc{min-height:140px}
  .f-grid{grid-template-columns:1fr 1fr}.why-img{height:420px}
 }
 @media(max-width:720px){
+ #people.section{padding-top:44px;padding-bottom:20px}
+ #people + .why-section{padding-top:44px}
+ .tri{margin-top:24px}
+ .hero{min-height:92svh;min-height:92vh}
+ .hero h1{font-size:clamp(2.65rem,12vw,4.6rem)}
+ .hero:before{background:linear-gradient(90deg,rgba(7,22,34,.78),rgba(7,22,34,.48)),linear-gradient(0deg,rgba(7,22,34,.9),rgba(7,22,34,.08) 78%)}
  .tri{grid-template-columns:1fr}.tri figure,.tri figure:nth-child(2){height:320px;margin-top:0}.why-img2{width:52%;height:140px}
  .section,.services{padding:72px 0}
  .svc-grid{grid-template-columns:1fr}.svc{padding:34px 24px}
@@ -269,7 +243,7 @@ textarea.fc{min-height:140px}
 <main id="top">
 <section class="hero">
   <div class="hero-bg" id="heroBg">
-    <video id="heroVid" autoplay muted loop playsinline preload="none" aria-hidden="true" poster="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=85"><source src="media/hero.webm" type="video/webm"><source src="hero.mp4" type="video/mp4"></video>
+    <video id="heroVid" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=2000&amp;q=85" aria-label="Healthcare and clinical research background video"><source src="hero.mp4?v=20261010" type="video/mp4">Your browser does not support HTML5 video.</video>
   </div>
   <div class="float-card"><i></i><div><strong>Built for African healthcare</strong><span>Local realities. Global best practice.</span></div></div>
   <div class="wrap">
@@ -329,21 +303,21 @@ textarea.fc{min-height:140px}
   </div>
 </section>
 
-<section class="section" style="padding-bottom:40px">
+<section class="section" id="people">
   <div class="wrap">
     <div class="kicker">The people behind safe care</div>
     <h2>Trust is built by clinicians, researchers and communities.</h2>
     <div class="tri">
-      <figure class="mask ph"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=85" alt="African doctor consulting with a patient" loading="lazy" decoding="async"><figcaption>Patient-centred care</figcaption></figure>
-      <figure class="mask ph" style="transition-delay:.15s"><img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1000&q=85" alt="African researcher working in a laboratory" loading="lazy" decoding="async"><figcaption>Rigorous research</figcaption></figure>
-      <figure class="mask ph" style="transition-delay:.3s"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=85" alt="African healthcare team in discussion" loading="lazy" decoding="async"><figcaption>Accountable teams</figcaption></figure>
+      <figure class="mask ph"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" loading="lazy" decoding="async" alt="African doctor consulting with a patient"><figcaption>Patient-centred care</figcaption></figure>
+      <figure class="mask ph" style="transition-delay:.15s"><img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" loading="lazy" decoding="async" alt="African researcher working in a laboratory"><figcaption>Rigorous research</figcaption></figure>
+      <figure class="mask ph" style="transition-delay:.3s"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" loading="lazy" decoding="async" alt="African healthcare team in discussion"><figcaption>Accountable teams</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section why-section">
   <div class="wrap why">
-    <div class="why-wrap rv"><div class="why-img ph"><img id="parallax" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1200&q=85" alt="African doctors discussing a case" loading="lazy" decoding="async"></div><div class="why-img2 ph"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&q=85" alt="African doctor with clipboard" loading="lazy" decoding="async"></div></div>
+    <div class="why-wrap rv"><div class="why-img ph"><img id="parallax" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" loading="lazy" decoding="async" alt="African doctors discussing a case"></div><div class="why-img2 ph"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&amp;fit=crop&amp;w=800&amp;q=85" loading="lazy" decoding="async" alt="African doctor with clipboard"></div></div>
     <div class="rv">
       <div class="kicker">Why MedEthyx</div>
       <h2>Practical support built around trust.</h2>
@@ -418,8 +392,8 @@ textarea.fc{min-height:140px}
         </form>
       </div>
       <ul class="info">
-        <li><small>Email</small><strong>let'sconnect@medethyx.co.zw</strong></li>
-        <li><small>Phone</small><strong>+27 10 312 6200</strong></li>
+        <li><small>Email</small><strong><a href="mailto:let%27sconnect@medethyx.co.zw">let'sconnect@medethyx.co.zw</a></strong></li>
+        <li><small>Phone</small><strong><a href="tel:+27103126200">+27 10 312 6200</a></strong></li>
         <li><small>Where we work</small><strong>Serving organisations across Africa</strong></li>
         <li><small>Response time</small><strong>We aim to respond within two business days.</strong></li>
       </ul>
@@ -464,7 +438,50 @@ textarea.fc{min-height:140px}
   addEventListener('scroll',function(){requestAnimationFrame(onScroll)},{passive:true});onScroll();
 
   var v=$('#heroVid');
-  if(reduce){v.remove()}else{v.addEventListener('canplay',function(){v.classList.add('on');v.play().catch(function(){})},{once:true});v.addEventListener('error',function(){v.remove()},true)}
+  if(reduce){v.remove()}else if(v){
+    var videoSource=v.querySelector('source');
+    var videoBase='hero.mp4';
+    var retryTimer=null,watchdogTimer=null,lastTime=-1,stalledSince=0,retryCount=0;
+    function revealVideo(){v.classList.add('on')}
+    function playVideo(){
+      if(document.visibilityState==='hidden')return;
+      var p=v.play();
+      if(p&&typeof p.catch==='function')p.catch(function(){/* Autoplay can be blocked by browser policy; retry on visibility/page restore. */});
+    }
+    function scheduleRetry(forceFresh){
+      if(retryTimer)clearTimeout(retryTimer);
+      retryTimer=setTimeout(function(){
+        if(document.visibilityState==='hidden')return;
+        retryCount++;
+        var fresh=forceFresh||retryCount%2===0;
+        var nextUrl=videoBase+(fresh?'?v='+Date.now():'?v=20261010');
+        v.classList.remove('on');
+        try{v.pause()}catch(e){}
+        videoSource.src=nextUrl;
+        v.load();
+        lastTime=-1;stalledSince=Date.now();
+        playVideo();
+      },Math.min(1200+retryCount*700,6000));
+    }
+    v.addEventListener('loadeddata',function(){revealVideo();playVideo()});
+    v.addEventListener('canplay',function(){revealVideo();playVideo();stalledSince=0});
+    v.addEventListener('playing',function(){revealVideo();stalledSince=0;lastTime=v.currentTime});
+    v.addEventListener('error',function(){scheduleRetry(true)});
+    v.addEventListener('stalled',function(){stalledSince=Date.now();scheduleRetry(false)});
+    v.addEventListener('waiting',function(){if(!stalledSince)stalledSince=Date.now()});
+    v.addEventListener('ended',function(){try{v.currentTime=0}catch(e){}playVideo()});
+    v.addEventListener('timeupdate',function(){if(v.currentTime>lastTime+.05){lastTime=v.currentTime;stalledSince=0}});
+    function resumeVideo(){if(document.visibilityState==='visible'){if(v.readyState<2||v.error){scheduleRetry(true)}else{playVideo()}}}
+    document.addEventListener('visibilitychange',resumeVideo);
+    window.addEventListener('pageshow',function(){resumeVideo()});
+    window.addEventListener('online',function(){if(v.error||v.readyState<2)scheduleRetry(true)});
+    watchdogTimer=setInterval(function(){
+      if(document.visibilityState==='hidden')return;
+      if(v.paused){playVideo();return}
+      if(v.readyState<2||(stalledSince&&Date.now()-stalledSince>7000))scheduleRetry(true);
+    },8000);
+    v.load();playVideo();
+  }
   var mb=$('#menuBtn'),menu=$('#mobileMenu'),ov=$('#overlay');
   function setMenu(o){menu.classList.toggle('active',o);ov.classList.toggle('active',o);document.body.classList.toggle('menu-open',o);mb.setAttribute('aria-expanded',String(o))}
   mb.addEventListener('click',function(){setMenu(!menu.classList.contains('active'))});
@@ -489,8 +506,8 @@ textarea.fc{min-height:140px}
   form.addEventListener('submit',function(e){
     e.preventDefault();btn.disabled=true;btn.textContent='Sending...';box.className='alert';
     var d={fullName:$('#fullName').value,organisation:$('#organisation').value,emailAddress:$('#emailAddress').value,phoneNumber:$('#phoneNumber').value,helpTopic:$('#helpTopic').value,needs:$('#needs').value};
-    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
-    .then(function(){box.className='alert success';box.textContent='Your enquiry has been submitted. If your request is urgent, please contact MedEthyx directly using the details on this page.';form.reset()})
+    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})
+    .then(function(){box.className='alert success';box.textContent='Your enquiry request has been submitted. If you do not hear back, please contact MedEthyx directly using the details on this page.';form.reset()})
     .catch(function(err){console.error(err);box.className='alert error';box.textContent='The enquiry did not send. Please email us directly.'})
     .finally(function(){btn.disabled=false;btn.innerHTML=label});
   });
