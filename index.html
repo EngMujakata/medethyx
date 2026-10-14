@@ -3,11 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MedEthyx provides trusted healthcare ethics, clinical research, governance and compliance support for organisations across Africa.">
+<title>MedEthyx | Ethical Compliance Support for Healthcare and Research</title>
+<meta name="description" content="MedEthyx is an ethics, compliance and research support consultancy advancing medical integrity across Africa.">
 <meta name="theme-color" content="#0A1D2B">
-<title>MedEthyx | Ethical Healthcare & Research</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="MedEthyx | Ethical Compliance Support for Healthcare and Research">
+<meta property="og:description" content="Ethics, compliance and research support for healthcare practices, research sites, sponsors and CROs across Africa.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -26,24 +31,26 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-heig
 /* header */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,box-shadow .3s}
 .site-header.solid{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
-.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-.logo{display:inline-flex;align-items:center;gap:10px;min-width:150px}.logo img{height:42px;width:auto;object-fit:contain}.logo-wordmark{display:none;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1}.solid .logo-wordmark{color:var(--ink)}.logo-wordmark span{color:var(--teal)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:14px;font-weight:600;color:#fff;position:relative;padding:6px 0;transition:color .3s}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:inline-flex;align-items:center;gap:10px;min-width:150px}.logo img{height:42px;width:auto;object-fit:contain}
+.logo-wordmark{display:none;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.solid .logo-wordmark{color:var(--ink)}.logo-wordmark span{color:var(--teal)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:14px;font-weight:600;color:#fff;position:relative;padding:6px 0;transition:color .3s;white-space:nowrap}
 .solid .nav-links a{color:var(--ink)}
 .nav-links a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--orange);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
 .nav-links a:hover:after{transform:scaleX(1);transform-origin:left}
-.btn{border:0;border-radius:8px;padding:14px 22px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;transition:background .25s,transform .25s var(--ease),color .25s,border-color .25s}
+.btn{border:0;border-radius:8px;padding:14px 22px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;transition:background .25s,transform .25s var(--ease),color .25s,border-color .25s,box-shadow .25s}
 .btn .icon{transition:transform .3s var(--ease)}.btn:hover .icon{transform:translateX(4px)}
-.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:var(--orange2)}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 8px 22px rgba(255,107,53,.16)}.btn-orange:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,107,53,.23)}
+.btn-orange:disabled{opacity:.7;cursor:progress;transform:none}
 .btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.btn-line{border:1px solid var(--ink);color:var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
 .menu-btn{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:8px;background:transparent;color:#fff;align-items:center;justify-content:center}
 .solid .menu-btn{border-color:var(--line);color:var(--ink)}
 .mobile-overlay{position:fixed;inset:0;background:rgba(10,29,43,.5);opacity:0;pointer-events:none;transition:.3s;z-index:998}
 .mobile-overlay.active{opacity:1;pointer-events:auto}
-.mobile-menu{position:fixed;top:0;right:-360px;width:min(340px,88vw);height:100vh;background:#fff;z-index:999;padding:96px 28px 30px;transition:right .4s var(--ease)}
-.mobile-menu.active{right:0}
+.mobile-menu{position:fixed;top:0;right:-360px;width:min(340px,88vw);height:100vh;background:#fff;z-index:999;padding:96px 28px 30px;visibility:hidden;transition:right .4s var(--ease),visibility 0s .4s}
+.mobile-menu.active{right:0;visibility:visible;transition:right .4s var(--ease),visibility 0s}
 .mobile-menu ul{list-style:none;margin-bottom:26px}
 .mobile-menu a:not(.btn){display:block;padding:15px 4px;border-bottom:1px solid var(--line);font-weight:700;color:var(--ink)}
 
@@ -52,72 +59,39 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-heig
 .hero-bg{position:absolute;inset:-6% 0;background:var(--ink) url("media/hero-poster.jpg") center/cover;animation:settle 2.4s var(--ease) both;will-change:transform}
 .hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease;background:var(--ink);transform:scale(1.015);filter:saturate(.86) contrast(1.04)}
 .hero-bg video.on{opacity:1}
-.float-card{position:absolute;right:max(20px,calc((100% - var(--max))/2));top:34%;z-index:2;background:rgba(255,255,255,.96);color:var(--ink);padding:16px 20px;border-radius:10px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.25);opacity:0;animation:fade .8s 1.2s ease forwards,bob 5s 2s ease-in-out infinite}
-.float-card i{width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(0,168,143,.6);animation:pulse 2s infinite}
-.float-card strong{display:block;font-size:14px}.float-card span{font-size:12px;color:var(--muted)}
-@keyframes bob{50%{transform:translateY(-10px)}}@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(0,168,143,0)}100%{box-shadow:0 0 0 0 rgba(0,168,143,0)}}
-.marquee{background:var(--teal);color:#fff;overflow:hidden;padding:18px 0;white-space:nowrap}
-.marquee div{display:inline-flex;gap:48px;padding-right:48px;animation:slide 32s linear infinite;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px}
-.marquee span:after{content:"+";margin-left:48px;opacity:.6}
-.marquee:hover div{animation-play-state:paused}
-@keyframes slide{to{transform:translateX(-100%)}}
-.mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease)}.mask.in{clip-path:inset(0)}
-.mask img{transform:scale(1.25);transition:transform 1.8s var(--ease)}.mask.in img{transform:scale(1)}
-.ph{background:linear-gradient(135deg,var(--ink2),var(--teal))}
-.tri{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-top:32px}
-.tri figure{position:relative;height:440px;overflow:hidden;border-radius:6px}
-.tri figure:nth-child(2){margin-top:48px}.tri figure:nth-child(3){margin-top:96px;height:344px}
-.tri img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.tri figcaption{position:absolute;left:0;right:0;bottom:0;padding:50px 20px 18px;color:#fff;font-weight:600;font-size:15px;background:linear-gradient(transparent,rgba(10,29,43,.85));transform:translateY(8px);opacity:.9;transition:transform .5s var(--ease)}
-.tri figure:hover figcaption{transform:none}
-/* Keep the people-to-why transition compact: avoid an oversized blank band. */
-#people.section{padding-top:62px;padding-bottom:28px}
-#people + .why-section{padding-top:58px}
-.tri figure{background:#dce7e8}
-.tri figure:nth-child(2) img{filter:grayscale(100%);}
-.tri figure:nth-child(2):hover img{filter:grayscale(35%)}
-.tri img{transition:transform .8s var(--ease),filter .5s}
-.tri figure:hover img{transform:scale(1.045)}
-.btn{min-height:48px}
-.btn-orange{box-shadow:0 8px 22px rgba(255,107,53,.16)}
-.btn-orange:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,107,53,.23)}
-.site-header.solid{border-bottom:1px solid rgba(10,29,43,.05)}
-@media(prefers-reduced-motion:reduce){.hero-bg video{display:none}}
-.why-img2{position:absolute;right:-30px;bottom:-30px;width:46%;height:200px;border:6px solid #fff;border-radius:6px;overflow:hidden;z-index:2;box-shadow:0 20px 40px rgba(10,29,43,.2)}
-.why-img2 img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.stg>*{opacity:0;transform:translateX(-18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.stg.in>*{opacity:1;transform:none}
-.stg.in>*:nth-child(2){transition-delay:.1s}.stg.in>*:nth-child(3){transition-delay:.2s}.stg.in>*:nth-child(4){transition-delay:.3s}.stg.in>*:nth-child(5){transition-delay:.4s}
 .hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,22,34,.82) 0%,rgba(7,22,34,.59) 56%,rgba(7,22,34,.30) 100%),linear-gradient(0deg,rgba(7,22,34,.9) 0%,rgba(7,22,34,.08) 72%)}
 .hero .wrap{position:relative;z-index:2;padding:150px 0 70px}
+.pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:7px 16px;font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:26px;background:rgba(255,255,255,.06);opacity:0;animation:fade .8s .2s ease forwards}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(0,168,143,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(0,168,143,0)}100%{box-shadow:0 0 0 0 rgba(0,168,143,0)}}
 .hero h1{color:#fff;font-size:clamp(2.8rem,7.4vw,6.2rem);font-weight:800;letter-spacing:-.035em;max-width:11.5ch;margin-bottom:28px;text-wrap:balance}
 .line{display:block;overflow:hidden;padding-bottom:.08em}
 .line>span{display:block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
 .line:nth-child(2)>span{animation-delay:.12s}.line:nth-child(3)>span{animation-delay:.24s}
 .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;opacity:0;animation:fade .9s .7s ease forwards}
-.hero p{max-width:520px;font-size:17px;color:#C6D3DC;line-height:1.75}
+.hero p{max-width:520px;font-size:19px;color:#C6D3DC;line-height:1.6}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.hero-tag{position:absolute;right:20px;bottom:28px;z-index:2;font-size:12px;color:#9FB2BF;writing-mode:vertical-rl;display:none}
 @keyframes rise{to{transform:none}}@keyframes fade{to{opacity:1}}@keyframes settle{from{transform:scale(1.12)}to{transform:scale(1)}}
+
+.marquee{background:var(--teal);color:#fff;overflow:hidden;padding:18px 0;white-space:nowrap}
+.marquee div{display:inline-flex;gap:48px;padding-right:48px;animation:slide 40s linear infinite;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px}
+.marquee span:after{content:"+";margin-left:48px;opacity:.6}
+.marquee:hover div{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-100%)}}
 
 /* sections */
 .section{padding:96px 0}
 .kicker{color:var(--teal);font-size:14px;font-weight:700;margin-bottom:14px}
 h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
-.lead{color:var(--muted);font-size:17px;max-width:560px;margin-top:16px}
-
-/* principles */
-.principles{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
-.p-list{list-style:none}
-.p-list li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);position:relative}
-.p-list li:last-child{border-bottom:1px solid var(--line)}
-.p-list li:before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--teal);transition:width .6s var(--ease)}
-.p-list li:hover:before{width:100%}
-.p-list h3{font-size:19px;font-weight:700}.p-list p{color:var(--muted);font-size:15px}
+.lead{color:var(--muted);font-size:17px;max-width:600px;margin-top:16px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
+.stg>*{opacity:0;transform:translateX(-18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.stg.in>*{opacity:1;transform:none}
+.stg.in>*:nth-child(2){transition-delay:.1s}.stg.in>*:nth-child(3){transition-delay:.2s}.stg.in>*:nth-child(4){transition-delay:.3s}
 
 /* services */
 .services{background:var(--ink);color:#fff;padding:110px 0}
-.services h2{color:#fff}.services .lead{color:#9FB2BF}
+.services h2{color:#fff}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
 .svc{background:var(--ink);padding:44px 40px 40px;display:flex;flex-direction:column;transition:background .4s}
 .svc:hover{background:var(--ink2)}
@@ -130,38 +104,32 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .svc .btn{margin-top:auto;align-self:flex-start}
 
 /* why */
-.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
-.why-wrap{position:relative}.why-img{position:relative;height:560px;border-radius:6px;overflow:hidden}
-.why-img img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;will-change:transform}
-.why ul{list-style:none;margin-top:30px}
-.why li{padding:18px 0;border-top:1px solid var(--line)}
-.why h3{font-size:18px;margin-bottom:4px}.why li p{color:var(--muted);font-size:15px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.why-item{padding:34px 32px 10px 0;position:relative}
+.why-item+.why-item{padding-left:32px;border-left:1px solid var(--line)}
+.why-item b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;color:var(--teal);margin-bottom:14px}
+.why-item h3{font-size:24px;margin-bottom:10px}
+.why-item p{color:var(--muted);font-size:15px}
 
-/* support tabs */
-.support{background:var(--mist)}
-.tabs{display:flex;gap:6px;margin:40px 0 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.tab{background:none;border:0;padding:14px 20px;font-weight:700;font-size:15px;color:var(--muted);position:relative}
-.tab:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--orange);transform:scaleX(0);transition:transform .35s var(--ease)}
-.tab[aria-selected=true]{color:var(--ink)}.tab[aria-selected=true]:after{transform:scaleX(1)}
-.panel{display:none;grid-template-columns:1fr 1fr;gap:60px;padding-top:44px}
-.panel.on{display:grid;animation:swap .5s var(--ease)}
-@keyframes swap{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
-.panel h3{font-size:30px;margin-bottom:12px}.panel p{color:var(--muted);max-width:420px}
-.panel ul{list-style:none;columns:1}
-.panel li{padding:14px 0;border-top:1px solid var(--line);font-weight:600;color:var(--ink);display:flex;justify-content:space-between}
-.panel li:last-child{border-bottom:1px solid var(--line)}
-.panel li .icon{color:var(--teal)}
+/* who */
+.who{background:var(--mist)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.who-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:34px 30px;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s}
+.who-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(10,29,43,.1);border-color:var(--teal)}
+.ic{width:52px;height:52px;border-radius:12px;background:var(--mint);color:var(--teal);display:grid;place-items:center;margin-bottom:22px}
+.ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.who-card h3{font-size:22px;margin-bottom:10px}
+.who-card p{color:var(--muted);font-size:15px}
 
-/* process */
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;margin-top:64px;position:relative}
-.rail{position:absolute;left:0;right:0;top:17px;height:2px;background:var(--line)}
-.rail i{display:block;height:100%;background:var(--teal);width:0;transition:width 1.6s var(--ease)}
-.steps.go .rail i{width:100%}
-.step{position:relative;padding-top:50px}
-.step b{position:absolute;top:0;left:0;width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--ink);transition:background .4s,border-color .4s,color .4s}
-.steps.go .step b{background:var(--teal);border-color:var(--teal);color:#fff}
-.steps.go .step:nth-child(3) b{transition-delay:.3s}.steps.go .step:nth-child(4) b{transition-delay:.6s}.steps.go .step:nth-child(5) b{transition-delay:.9s}.steps.go .step:nth-child(6) b{transition-delay:1.2s}
-.step h3{font-size:19px;margin-bottom:6px}.step p{font-size:14px;color:var(--muted)}
+/* blog */
+.blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.post{border:1px solid var(--line);border-radius:8px;padding:34px 32px;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s}
+.post:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(10,29,43,.1);border-color:var(--teal)}
+.meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);margin-bottom:18px}
+.chip{background:var(--mint);color:#067565;font-weight:700;padding:4px 12px;border-radius:100px;font-size:12px}
+.post h3{font-size:23px;line-height:1.2;margin-bottom:12px}
+.post p{color:var(--muted);font-size:15px;margin-bottom:24px}
+.post .tag{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink)}
 
 /* contact */
 .contact{background:var(--mist)}
@@ -174,70 +142,95 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .fc:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,168,143,.14)}
 textarea.fc{min-height:130px;resize:vertical}
 .check{display:flex;gap:10px;align-items:flex-start;margin:4px 0 22px}.check input{accent-color:var(--teal);margin-top:5px}.check label{font-size:13px;color:var(--muted)}
+.linkbtn{background:none;border:0;padding:0;color:var(--teal);font-weight:700;text-decoration:underline;font-size:inherit}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .alert{display:none;padding:13px 15px;border-radius:6px;font-size:14px;font-weight:600;margin-bottom:18px}
 .alert.success{display:block;background:#E8F8F0;color:#0A6B45}.alert.error{display:block;background:#FDECEC;color:#A32020}
+.contact-side h3{font-size:26px;margin-bottom:12px}
+.contact-side>p{color:var(--muted);margin-bottom:28px}
 .info{list-style:none}
-.info li{padding:20px 0;border-bottom:1px solid var(--line)}.info li:first-child{padding-top:0}
+.info li{padding:18px 0;border-top:1px solid var(--line)}.info li:last-child{border-bottom:1px solid var(--line)}
 .info small{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}.info strong{font-size:17px;color:var(--ink);font-weight:600;overflow-wrap:anywhere}
+.info a:hover{color:var(--teal)}
 
 /* footer */
 footer{background:var(--ink);color:#fff;padding:90px 0 28px}
-.big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;max-width:16ch;margin-bottom:56px}
-.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:40px;padding-top:44px;border-top:1px solid rgba(255,255,255,.14)}
+.big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;max-width:16ch;margin-bottom:40px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:40px;padding-top:44px;margin-top:70px;border-top:1px solid rgba(255,255,255,.14)}
 .f-col h4{font-size:14px;margin-bottom:14px}
-.f-col p,.f-col a,.f-col li{color:#9FB2BF;font-size:14px;line-height:2}.f-col ul{list-style:none}.f-col a:hover{color:var(--teal)}
+.f-col p,.f-col a,.f-col li{color:#9FB2BF;font-size:14px;line-height:2;overflow-wrap:anywhere}.f-col ul{list-style:none}.f-col a:hover{color:var(--teal)}
 .f-logo{height:42px;width:auto;margin-bottom:14px}
-.socials{display:flex;gap:8px;margin-top:14px}.socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.16);border-radius:6px;display:grid;place-items:center;color:#fff;transition:background .25s,border-color .25s}.socials a:hover{background:var(--teal);border-color:var(--teal);color:#fff}
-.f-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;font-size:12px;color:#6F8595}
+.f-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;font-size:12px;color:#8097A6}
+.f-bottom .links{display:flex;gap:20px}
+.f-bottom button{background:none;border:0;color:#8097A6;font-size:12px}.f-bottom button:hover{color:var(--teal)}
 
-/* single scroll reveal for images/panels only */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
+/* legal dialogs */
+dialog{border:0;border-radius:10px;width:min(680px,calc(100% - 32px));max-height:86vh;padding:0;color:var(--text);margin:auto}
+dialog::backdrop{background:rgba(10,29,43,.6)}
+.dlg{padding:36px 36px 30px;overflow-y:auto;max-height:86vh}
+.dlg h2{font-size:30px;margin-bottom:6px}
+.dlg .upd{font-size:13px;color:var(--muted);margin-bottom:20px}
+.dlg h3{font-size:17px;margin:20px 0 6px}
+.dlg p,.dlg li{font-size:15px;color:var(--muted)}
+.dlg ul{padding-left:20px}
+.dlg .btn{margin-top:26px}
 
 @media(max-width:1050px){
- .float-card{display:none}.tri{grid-template-columns:1fr 1fr}.tri figure:nth-child(3){display:none}.why-img2{right:10px;bottom:-24px}
  .nav-links,.desktop-cta{display:none}.menu-btn{display:flex}
- .principles,.why,.contact-grid{grid-template-columns:1fr;gap:44px}
- .steps{grid-template-columns:repeat(3,1fr);row-gap:40px}.rail{display:none}
- .f-grid{grid-template-columns:1fr 1fr}.why-img{height:420px}
+ .contact-grid{grid-template-columns:1fr;gap:44px}
+ .who-grid{grid-template-columns:1fr 1fr}
+ .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+ .why-grid{grid-template-columns:1fr}
+ .why-item,.why-item+.why-item{padding:28px 0;border-left:0;border-bottom:1px solid var(--line)}
+ .blog-grid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
- #people.section{padding-top:44px;padding-bottom:20px}
- #people + .why-section{padding-top:44px}
- .tri{margin-top:24px}
  .hero{min-height:92svh;min-height:92vh}
  .hero h1{font-size:clamp(2.65rem,12vw,4.6rem)}
  .hero:before{background:linear-gradient(90deg,rgba(7,22,34,.78),rgba(7,22,34,.48)),linear-gradient(0deg,rgba(7,22,34,.9),rgba(7,22,34,.08) 78%)}
- .tri{grid-template-columns:1fr}.tri figure,.tri figure:nth-child(2){height:320px;margin-top:0}.why-img2{width:52%;height:140px}
  .section,.services{padding:72px 0}
  .svc-grid{grid-template-columns:1fr}.svc{padding:34px 24px}
- .p-list li{grid-template-columns:1fr;gap:6px}
- .panel.on{grid-template-columns:1fr;gap:28px}
- .steps{grid-template-columns:1fr}.step{padding:0 0 0 54px}
+ .who-grid{grid-template-columns:1fr}
  .fg2{grid-template-columns:1fr}.card{padding:24px 18px}
  .hero .wrap{padding-bottom:48px}.hero-actions{width:100%}.hero-actions .btn{flex:1}
- .tab{padding:12px 12px;font-size:14px}
+ .dlg{padding:28px 22px 24px}
 }
 @media(max-width:480px){.f-grid{grid-template-columns:1fr}.logo img{height:36px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.line>span{transform:none}.hero-foot,.rv,.stg>*,.float-card{opacity:1;transform:none}.mask{clip-path:none}.mask img{transform:none}.steps .rail i{width:100%}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.line>span{transform:none}.hero-foot,.pill,.rv,.stg>*{opacity:1;transform:none}.steps .rail i{width:100%}.hero-bg video{display:none}html{scroll-behavior:auto}}
 </style>
+<noscript><style>.rv,.stg>*,.pill,.hero-foot{opacity:1!important;transform:none!important}.line>span{transform:none!important}</style></noscript>
 </head>
 <body>
 <div class="progress" id="progress"></div>
 
 <header class="site-header" id="header">
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="MedEthyx home"><img id="logoImg" src="logo.jpg" alt="MedEthyx logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="logo-wordmark">Med<span>Ethyx</span></span></a>
+    <a class="logo" href="#top" aria-label="MedEthyx home"><img src="logo.jpg" alt="MedEthyx logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"><span class="logo-wordmark">Med<span>Ethyx</span></span></a>
     <nav aria-label="Main navigation"><ul class="nav-links">
-      <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#support">Who we support</a></li><li><a href="#process">How it works</a></li><li><a href="#contact">Contact</a></li>
+      <li><a href="#top">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-choose">Why Choose</a></li>
+      <li><a href="#who-we-help">Who We Help</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#consultation">Contact</a></li>
     </ul></nav>
-    <a href="#contact" class="btn btn-orange desktop-cta">Book a consultation</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button>
+    <a href="#consultation" class="btn btn-orange desktop-cta">Book a Consultation</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button>
   </div>
 </header>
 <div class="mobile-overlay" id="overlay" aria-hidden="true"></div>
-<aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <ul><li><a href="#about" class="ml">About</a></li><li><a href="#services" class="ml">Services</a></li><li><a href="#support" class="ml">Who we support</a></li><li><a href="#process" class="ml">How it works</a></li><li><a href="#contact" class="ml">Contact</a></li></ul>
-  <a href="#contact" class="btn btn-orange ml">Book a consultation</a>
+<aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+  <ul>
+    <li><a href="#top" class="ml">About Us</a></li>
+    <li><a href="#services" class="ml">Services</a></li>
+    <li><a href="#why-choose" class="ml">Why Choose</a></li>
+    <li><a href="#who-we-help" class="ml">Who We Help</a></li>
+    <li><a href="#blog" class="ml">Blog</a></li>
+    <li><a href="#consultation" class="ml">Contact</a></li>
+  </ul>
+  <a href="#consultation" class="btn btn-orange ml">Book a Consultation</a>
 </aside>
 
 <main id="top">
@@ -246,155 +239,142 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
     <video id="heroVid" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=2000&amp;q=85" aria-label="Healthcare and clinical research background video"><source src="hero.mp4?v=20261010" type="video/mp4">Your browser does not support HTML5 video.</video>
   </div>
   <div class="wrap">
-    <h1 aria-label="Building trust in healthcare and research.">
-      <span class="line"><span>Building trust</span></span>
-      <span class="line"><span>in healthcare</span></span>
-      <span class="line"><span>and research.</span></span>
+    <div class="pill"><i></i>Integrity Guardian</div>
+    <h1 aria-label="Ethical Compliance Support">
+      <span class="line"><span>Ethical</span></span>
+      <span class="line"><span>Compliance</span></span>
+      <span class="line"><span>Support</span></span>
     </h1>
     <div class="hero-foot">
-      <p>MedEthyx helps healthcare providers, laboratories, research institutions, sponsors, CROs and clinical research sites handle ethics, compliance and research operations with confidence.</p>
+      <p>For Healthcare Practices and Research Sites</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-orange">Discuss your needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="#services" class="btn btn-ghost">Our services</a>
+        <a href="#consultation" class="btn btn-orange">Book a Consultation <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#services" class="btn btn-ghost">Explore Our Services</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div><span>Healthcare ethics</span><span>Clinical research</span><span>Regulatory submissions</span><span>Governance</span><span>Compliance</span><span>Participant protection</span></div><div><span>Healthcare ethics</span><span>Clinical research</span><span>Regulatory submissions</span><span>Governance</span><span>Compliance</span><span>Participant protection</span></div></div>
+<div class="marquee" aria-hidden="true"><div><span>Ethics Advisory</span><span>Informed Consent Support</span><span>Healthcare Compliance</span><span>Ethics &amp; Regulatory Submissions</span><span>Site Readiness</span><span>Research Compliance</span><span>Clinical Trial Operations</span></div><div><span>Ethics Advisory</span><span>Informed Consent Support</span><span>Healthcare Compliance</span><span>Ethics &amp; Regulatory Submissions</span><span>Site Readiness</span><span>Research Compliance</span><span>Clinical Trial Operations</span></div></div>
 
-<section class="section" id="about">
-  <div class="wrap principles">
-    <div>
-      <div class="kicker">What guides us</div>
-      <h2>Ethical practice, trusted support, better outcomes.</h2>
-      <p class="lead">Practical advisory support with a firm focus on ethics, compliance, research quality and people.</p>
-    </div>
-    <ul class="p-list stg">
-      <li><h3>Ethics at the core</h3><p>Every engagement is grounded in ethical practice, accountability and trust.</p></li>
-      <li><h3>Compliance you can trust</h3><p>We help organisations work through requirements and stay ready for review and audit.</p></li>
-      <li><h3>People centred</h3><p>Protecting patient and participant rights while improving the experience of care and research.</p></li>
-      <li><h3>Built for Africa</h3><p>Solutions shaped by local realities and informed by global best practice.</p></li>
-      <li><h3>Long-term partnerships</h3><p>Working alongside organisations to strengthen systems, capacity and impact.</p></li>
-    </ul>
-  </div>
-</section>
-
-<section class="services" id="services">
+<section class="services section" id="services">
   <div class="wrap">
-    <div class="kicker">Our services</div>
-    <h2>Support where it matters.</h2>
-    <p class="lead">Healthcare ethics, clinical research, governance and research quality.</p>
+    <div class="kicker">What We Do</div>
+    <h2>Our Services</h2>
     <div class="svc-grid">
       <article class="svc">
-        <h3>Healthcare ethics support</h3>
-        <p>We partner with healthcare organisations to strengthen ethical practice, protect patients and build trust.</p>
-        <ul class="stg"><li>Ethics advisory services</li><li>Professional ethics training</li><li>Ethical policy development</li><li>Patient-centred care initiatives</li><li>Healthcare governance support</li></ul>
-        <a href="#contact" class="btn btn-ghost">Discuss your ethics needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <h3>Healthcare Ethics Support</h3>
+        <p>Helping healthcare organisations strengthen ethical practice and regulatory compliance.</p>
+        <ul class="stg"><li>Ethics Advisory</li><li>Informed Consent Support</li><li>Healthcare Compliance</li></ul>
+        <a href="#consultation" class="btn btn-ghost">Learn More <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
       <article class="svc">
-        <h3>Clinical research support</h3>
-        <p>Practical systems, coordination and quality across the whole study lifecycle.</p>
-        <ul class="stg"><li>Research site setup and support</li><li>Regulatory and ethics submissions</li><li>Study logistics and coordination</li><li>Participant engagement and recruitment</li><li>Research quality management</li></ul>
-        <a href="#contact" class="btn btn-ghost">Discuss your research needs <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <h3>Clinical Research Support</h3>
+        <p>Supporting research institutions, CROs, sponsors and clinical trial sites throughout the research lifecycle.</p>
+        <ul class="stg"><li>Ethics &amp; Regulatory Submissions</li><li>Site Readiness</li><li>Research Compliance</li><li>Clinical Trial Operations</li></ul>
+        <a href="#consultation" class="btn btn-ghost">Learn More <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" id="people">
+<section class="section" id="why-choose">
   <div class="wrap">
-    <div class="kicker">The people behind safe care</div>
-    <h2>Trust is built by clinicians, researchers and communities.</h2>
-      <figure class="mask ph"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" loading="lazy" decoding="async" alt="African doctor consulting with a patient"><figcaption>Patient-centred care</figcaption></figure>
-      <figure class="mask ph" style="transition-delay:.15s"><img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" loading="lazy" decoding="async" alt="African researcher working in a laboratory"><figcaption>Rigorous research</figcaption></figure>
-      <figure class="mask ph" style="transition-delay:.3s"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" loading="lazy" decoding="async" alt="African healthcare team in discussion"><figcaption>Accountable teams</figcaption></figure>
+    <div class="kicker">Why Choose MedEthyx</div>
+    <h2>Your Partner in Ethical and Compliant Practice</h2>
+    <p class="lead">Whether you're running a healthcare practice, or clinical studies, MedEthyx provides operational support to help you navigate ethics and compliance with confidence.</p>
+    <div class="why-grid rv">
+      <div class="why-item"><b>01</b><h3>Reduce Compliance Risk</h3><p>Navigate ethics and compliance requirements with confidence.</p></div>
+      <div class="why-item"><b>02</b><h3>Responsive, Expert Support</h3><p>Practical guidance tailored to your practice, site or project.</p></div>
+      <div class="why-item"><b>03</b><h3>Build Trust</h3><p>Strengthen confidence among patients, participants and stakeholders.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section why-section">
-  <div class="wrap why">
-    <div class="why-wrap rv"><div class="why-img ph"><img id="parallax" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" loading="lazy" decoding="async" alt="African doctors discussing a case"></div><div class="why-img2 ph"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&amp;fit=crop&amp;w=800&amp;q=85" loading="lazy" decoding="async" alt="African doctor with clipboard"></div></div>
-    <div class="rv">
-      <div class="kicker">Why MedEthyx</div>
-      <h2>Practical support built around trust.</h2>
-      <p class="lead">From individual practices to multi-centre research programmes: clear guidance, responsible practice and workable systems.</p>
-      <ul>
-        <li><h3>Trusted support</h3><p>Responsive guidance tailored to your organisation, project and challenge.</p></li>
-        <li><h3>Patient and participant focused</h3><p>We help organisations build trust and improve experiences.</p></li>
-        <li><h3>Built for African healthcare and research</h3><p>Local realities, global best practice.</p></li>
-      </ul>
+<section class="section who" id="who-we-help">
+  <div class="wrap">
+    <h2>Who We Help</h2>
+    <div class="who-grid">
+      <article class="who-card rv">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <h3>Healthcare Practices</h3>
+        <p>Helping clinics, hospitals and dental practices strengthen healthcare ethics, build patient trust and reduce risk.</p>
+      </article>
+      <article class="who-card rv" style="transition-delay:.12s">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 001.8 3h10.4a2 2 0 001.8-3l-5-9V3"/><path d="M7.5 15h9"/></svg></div>
+        <h3>Research Sites &amp; Institutions</h3>
+        <p>Supporting high-quality, compliant research and participant protection throughout the study lifecycle.</p>
+      </article>
+      <article class="who-card rv" style="transition-delay:.24s">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/></svg></div>
+        <h3>Sponsors &amp; CROs</h3>
+        <p>Helping identify capable sites, streamline start-up activities and support quality study delivery.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section support" id="support">
+<section class="section" id="blog">
   <div class="wrap">
-    <div class="kicker">Who we support</div>
-    <h2>Organisations at every stage.</h2>
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" data-t="0">Healthcare providers</button>
-      <button class="tab" role="tab" aria-selected="false" data-t="1">Researchers and institutions</button>
-      <button class="tab" role="tab" aria-selected="false" data-t="2">Sponsors and CROs</button>
-    </div>
-    <div class="panel on" role="tabpanel"><div><h3>Healthcare providers</h3><p>Hospitals, clinics, dental practices and healthcare networks.</p></div>
-      <ul><li>Ethics frameworks<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Governance support<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Policy development<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Staff training<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Compliance assessments<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li></ul></div>
-    <div class="panel" role="tabpanel"><div><h3>Researchers and institutions</h3><p>Universities, research institutes and independent research teams.</p></div>
-      <ul><li>Protocol support<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Ethics submissions<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Research governance<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Participant protection<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Research quality<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li></ul></div>
-    <div class="panel" role="tabpanel"><div><h3>Sponsors and CROs</h3><p>Organisations managing clinical research and study delivery.</p></div>
-      <ul><li>Site feasibility<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Site identification<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Site start-up<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Regulatory coordination<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li><li>Quality oversight<svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></li></ul></div>
-  </div>
-</section>
-
-<section class="section" id="process">
-  <div class="wrap">
-    <div class="kicker">How it works</div>
-    <h2>From first conversation to ongoing support.</h2>
-    <div class="steps" id="steps">
-      <div class="rail"><i></i></div>
-      <div class="step"><b>1</b><h3>Understand</h3><p>Tell us about your organisation, study or compliance challenge.</p></div>
-      <div class="step"><b>2</b><h3>Assess</h3><p>We review the relevant ethics, research or compliance requirements.</p></div>
-      <div class="step"><b>3</b><h3>Plan</h3><p>We build a support plan around your needs.</p></div>
-      <div class="step"><b>4</b><h3>Implement</h3><p>We support documentation, training and submissions.</p></div>
-      <div class="step"><b>5</b><h3>Monitor</h3><p>We help maintain quality, compliance and improvement.</p></div>
+    <h2>MedEthyx Blog</h2>
+    <div class="blog-grid">
+      <article class="post rv">
+        <div class="meta"><span class="chip">Ethics</span><span>Sep 2026</span><span>&middot;</span><span>6 min read</span></div>
+        <h3>Getting Informed Consent Right: A Practical Guide for Healthcare Practices and Research Sites</h3>
+        <p>A step-by-step guide to consent processes that protect patients and participants — and hold up to ethics and regulatory review.</p>
+        <span class="tag">Practical Guidance</span>
+      </article>
+      <article class="post rv" style="transition-delay:.12s">
+        <div class="meta"><span class="chip">Compliance</span><span>Aug 2026</span><span>&middot;</span><span>8 min read</span></div>
+        <h3>How Poor Consent and Data Protection Can Put Your Organisation at Risk</h3>
+        <p>Common gaps that expose healthcare practices and research sites to compliance, reputational and operational risks.</p>
+        <span class="tag">Risk &amp; Compliance</span>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section contact" id="contact">
+<section class="section contact" id="consultation">
   <div class="wrap">
-    <div class="kicker">Contact MedEthyx</div>
+    <div class="kicker">Contact</div>
     <h2>Let's start the conversation.</h2>
-    <p class="lead">Whether you need support with healthcare ethics or clinical research, tell us what you are working on.</p>
+    <p class="lead">Whether you need support with healthcare ethics or clinical research — we'd love to hear from you.</p>
     <div class="contact-grid">
       <div class="card">
         <div id="form-alert" class="alert" role="status"></div>
-        <form id="medethyx-form">
+        <form id="medethyx-form" novalidate>
           <div class="fg2">
-            <div class="fg"><label for="fullName">Full name *</label><input class="fc" id="fullName" name="fullName" required placeholder="Enter full name"></div>
-            <div class="fg"><label for="organisation">Organisation *</label><input class="fc" id="organisation" name="organisation" required placeholder="Organisation name"></div>
+            <div class="fg"><label for="fullName">Full Name *</label><input class="fc" id="fullName" name="fullName" required maxlength="120" autocomplete="name" placeholder="Enter full name"></div>
+            <div class="fg"><label for="organisation">Organisation *</label><input class="fc" id="organisation" name="organisation" required maxlength="160" autocomplete="organization" placeholder="Organisation name"></div>
           </div>
           <div class="fg2">
-            <div class="fg"><label for="emailAddress">Email address *</label><input type="email" class="fc" id="emailAddress" name="emailAddress" required placeholder="name@domain.com"></div>
-            <div class="fg"><label for="phoneNumber">Phone number</label><input type="tel" class="fc" id="phoneNumber" name="phoneNumber" placeholder="+27 / +263 ..."></div>
+            <div class="fg"><label for="emailAddress">Email Address *</label><input type="email" class="fc" id="emailAddress" name="emailAddress" required maxlength="160" autocomplete="email" placeholder="name@domain.com"></div>
+            <div class="fg"><label for="phoneNumber">Phone Number</label><input type="tel" class="fc" id="phoneNumber" name="phoneNumber" maxlength="40" autocomplete="tel" placeholder="+263 / +27 ..."></div>
           </div>
           <div class="fg"><label for="helpTopic">How can we help? *</label>
             <select class="fc" id="helpTopic" name="helpTopic" required>
               <option value="" disabled selected>Select an option</option>
-              <option>Healthcare Ethics Support</option><option>Clinical Research Support</option><option>General Enquiry</option><option>Partnership Opportunity</option><option>Training &amp; Capacity Building</option><option>Other</option>
+              <option>Healthcare ethics support</option>
+              <option>Clinical research support</option>
+              <option>Regulatory compliance</option>
+              <option>Not sure yet</option>
             </select></div>
-          <div class="fg"><label for="needs">Tell us about your needs *</label><textarea class="fc" id="needs" name="needs" required placeholder="Please share a brief overview of your needs..."></textarea></div>
-          <div class="check"><input type="checkbox" id="consent" name="consent" required><label for="consent">I agree to be contacted by MedEthyx regarding my enquiry.</label></div>
-          <button type="submit" id="submit-btn" class="btn btn-orange" style="width:100%">Send enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+          <div class="fg"><label for="needs">Tell Us About Your Needs *</label><textarea class="fc" id="needs" name="needs" required maxlength="3000" placeholder="Please share a brief overview of your needs..."></textarea></div>
+          <div class="hp" aria-hidden="true"><label for="website">Leave this field empty</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="check"><input type="checkbox" id="consent" name="consent" required><label for="consent">I agree to be contacted by MedEthyx regarding my enquiry. Read our <button type="button" class="linkbtn" data-dialog="privacy">Privacy Notice</button>.</label></div>
+          <button type="submit" id="submit-btn" class="btn btn-orange" style="width:100%">Submit Enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
         </form>
       </div>
-      <ul class="info">
-        <li><small>Email</small><strong><a href="mailto:let%27sconnect@medethyx.co.zw">let'sconnect@medethyx.co.zw</a></strong></li>
-        <li><small>Phone</small><strong><a href="tel:+27103126200">+27 10 312 6200</a></strong></li>
-        <li><small>Where we work</small><strong>Serving organisations across Africa</strong></li>
-        <li><small>Response time</small><strong>We aim to respond within two business days.</strong></li>
-      </ul>
+      <div class="contact-side">
+        <h3>Get in touch to discuss your needs</h3>
+        <p>Whether you're running a healthcare practice, managing a research site or planning a clinical study, we're here to help you navigate ethics and compliance with confidence.</p>
+        <ul class="info">
+          <li><small>Email</small><strong><a href="mailto:let%27sconnect@medethyx.co.zw">let'sconnect@medethyx.co.zw</a></strong></li>
+          <li><small>Phone</small><strong><a href="tel:+263786462686">+263 786462686</a></strong></li>
+          <li><small>Phone</small><strong><a href="tel:+263773137283">+263773137283</a></strong></li>
+          <li><small>Location</small><strong>78 Lomagundi Rd, Harare</strong></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -402,111 +382,144 @@ footer{background:var(--ink);color:#fff;padding:90px 0 28px}
 
 <footer>
   <div class="wrap">
-    <div class="big">Ready to talk about your healthcare or research needs?</div>
-    <a href="#contact" class="btn btn-orange">Request a consultation <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    <div class="f-grid" style="margin-top:70px">
-      <div class="f-col"><img class="f-logo" src="logo2.jpg" alt="MedEthyx logo" onerror="this.style.display='none'"><p>Supporting ethical healthcare and research at every step, with practical, trusted support.</p>
-        <div class="socials">
-          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="X"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-        </div></div>
-      <div class="f-col"><h4>Navigate</h4><ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#support">Who we support</a></li><li><a href="#process">How it works</a></li><li><a href="#contact">Contact</a></li></ul></div>
-      <div class="f-col"><h4>Services</h4><ul><li><a href="#services">Healthcare ethics support</a></li><li><a href="#services">Clinical research support</a></li><li><a href="#contact">Book a consultation</a></li></ul></div>
-      <div class="f-col"><h4>Contact</h4><p>let'sconnect@medethyx.co.zw</p><p>+27 10 312 6200</p><p>Serving healthcare and research organisations across Africa</p></div>
+    <div class="big">Get in touch to discuss your needs</div>
+    <a href="#consultation" class="btn btn-orange">Book a Consultation <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="f-grid">
+      <div class="f-col"><img class="f-logo" src="logo2.jpg" alt="MedEthyx logo" onerror="this.style.display='none'"><p>Ethics, compliance and research support advancing medical integrity across Africa.</p></div>
+      <div class="f-col"><h4>Navigate</h4><ul><li><a href="#top">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#why-choose">Why Choose</a></li><li><a href="#who-we-help">Who We Help</a></li><li><a href="#blog">Blog</a></li><li><a href="#consultation">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Location</h4><p>78 Lomagundi Rd, Harare</p></div>
+      <div class="f-col"><h4>Contact</h4><ul><li><a href="mailto:let%27sconnect@medethyx.co.zw">let'sconnect@medethyx.co.zw</a></li><li><a href="tel:+263786462686">+263 786462686</a></li><li><a href="tel:+263773137283">+263773137283</a></li></ul></div>
     </div>
-    <div class="f-bottom"><span>&copy; 2026 MedEthyx. All rights reserved.</span><span>Powered by Electrify Technologies</span></div>
+    <div class="f-bottom">
+      <span>&copy; 2026 MedEthyx. All rights reserved. &middot; Powered by Electrify Technologies</span>
+      <span class="links"><button type="button" data-dialog="privacy">Privacy</button><button type="button" data-dialog="terms">Terms</button></span>
+    </div>
   </div>
 </footer>
+
+<dialog id="privacy" aria-labelledby="privacy-title"><div class="dlg">
+  <h2 id="privacy-title">Privacy Notice</h2>
+  <p class="upd">Last updated: 14 October 2026</p>
+  <p>MedEthyx ("we", "us") respects your privacy. This notice explains what personal information we collect through this website and how we use it.</p>
+  <h3>What we collect</h3>
+  <p>When you submit the enquiry form we collect your full name, organisation, email address, phone number (optional), the topic you select and the message you write. We also record the date and time of your enquiry and that you agreed to be contacted.</p>
+  <h3>How we use it</h3>
+  <p>We use this information only to respond to your enquiry, to discuss possible services with you and to keep a record of the contact. We do not sell your information or use it for unrelated marketing.</p>
+  <h3>Where it is stored</h3>
+  <p>Enquiries are saved in a Google Sheet and sent to our team by email, so your information is processed using Google services, which may store data outside Zimbabwe. Access is limited to MedEthyx staff who need it to respond to you.</p>
+  <h3>How long we keep it</h3>
+  <p>We keep enquiries only as long as needed to handle your request and for reasonable record-keeping, after which we delete them.</p>
+  <h3>Your rights</h3>
+  <p>You may ask us to access, correct or delete the personal information we hold about you, or withdraw your consent to be contacted, at any time. Email us at let'sconnect@medethyx.co.zw or call +263 786462686. You may also have rights under applicable data protection law, including Zimbabwe's Cyber and Data Protection Act.</p>
+  <h3>Contact</h3>
+  <p>MedEthyx, 78 Lomagundi Rd, Harare.</p>
+  <button type="button" class="btn btn-orange" data-close>Close</button>
+</div></dialog>
+
+<dialog id="terms" aria-labelledby="terms-title"><div class="dlg">
+  <h2 id="terms-title">Terms of Use</h2>
+  <p class="upd">Last updated: 14 October 2026</p>
+  <p>By using this website you agree to these terms. If you do not agree, please do not use the site.</p>
+  <h3>General information only</h3>
+  <p>Content on this website, including blog articles, is general information about ethics, compliance and research. It is not legal, medical or regulatory advice. Sending an enquiry does not create a consultancy or professional relationship; that begins only when we agree the scope of work with you in writing.</p>
+  <h3>Accuracy</h3>
+  <p>We aim to keep the information accurate and current, but requirements change and we do not guarantee that it is complete. Please confirm the rules that apply to your situation with the relevant authority or ethics committee.</p>
+  <h3>Intellectual property</h3>
+  <p>The content, branding and design of this website belong to MedEthyx or its licensors. You may not copy or reuse them without our written permission.</p>
+  <h3>Your enquiries</h3>
+  <p>Please do not include patient-identifiable information, participant data or confidential study details in the enquiry form. Use of your personal information is described in our Privacy Notice.</p>
+  <h3>Liability</h3>
+  <p>To the extent the law allows, MedEthyx is not liable for losses arising from reliance on the content of this website.</p>
+  <h3>Governing law</h3>
+  <p>These terms are governed by the laws of Zimbabwe.</p>
+  <button type="button" class="btn btn-orange" data-close>Close</button>
+</div></dialog>
 
 <script>
 (function(){
   var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
-  var header=$('#header'),bar=$('#progress'),bg=$('#heroBg'),par=$('#parallax');
+  var header=$('#header'),bar=$('#progress'),bg=$('#heroBg');
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
   function onScroll(){
     var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
     bar.style.transform='scaleX('+(h>0?y/h:0)+')';
     header.classList.toggle('solid',y>40);
-    if(reduce)return;
-    if(y<innerHeight*1.2)bg.style.transform='translateY('+(y*.18)+'px)';
-    var r=par.parentElement.getBoundingClientRect();
-    if(r.bottom>0&&r.top<innerHeight)par.style.transform='translateY('+((r.top+r.height/2-innerHeight/2)*-.08)+'px)';
+    if(!reduce&&y<innerHeight*1.2)bg.style.transform='translateY('+(y*.18)+'px)';
   }
   addEventListener('scroll',function(){requestAnimationFrame(onScroll)},{passive:true});onScroll();
 
+  /* hero video with capped retries */
   var v=$('#heroVid');
   if(reduce){v.remove()}else if(v){
-    var videoSource=v.querySelector('source');
-    var videoBase='hero.mp4';
-    var retryTimer=null,watchdogTimer=null,lastTime=-1,stalledSince=0,retryCount=0;
-    function revealVideo(){v.classList.add('on')}
-    function playVideo(){
-      if(document.visibilityState==='hidden')return;
-      var p=v.play();
-      if(p&&typeof p.catch==='function')p.catch(function(){/* Autoplay can be blocked by browser policy; retry on visibility/page restore. */});
-    }
-    function scheduleRetry(forceFresh){
-      if(retryTimer)clearTimeout(retryTimer);
+    var src=v.querySelector('source'),retryTimer=null,retries=0,MAX=5;
+    function show(){v.classList.add('on')}
+    function play(){if(document.visibilityState==='hidden')return;var p=v.play();if(p&&p.catch)p.catch(function(){})}
+    function retry(){
+      if(retries>=MAX||retryTimer)return;
       retryTimer=setTimeout(function(){
-        if(document.visibilityState==='hidden')return;
-        retryCount++;
-        var fresh=forceFresh||retryCount%2===0;
-        var nextUrl=videoBase+(fresh?'?v='+Date.now():'?v=20261010');
+        retryTimer=null;retries++;
         v.classList.remove('on');
         try{v.pause()}catch(e){}
-        videoSource.src=nextUrl;
-        v.load();
-        lastTime=-1;stalledSince=Date.now();
-        playVideo();
-      },Math.min(1200+retryCount*700,6000));
+        src.src='hero.mp4?v='+Date.now();
+        v.load();play();
+      },Math.min(1200+retries*900,6000));
     }
-    v.addEventListener('loadeddata',function(){revealVideo();playVideo()});
-    v.addEventListener('canplay',function(){revealVideo();playVideo();stalledSince=0});
-    v.addEventListener('playing',function(){revealVideo();stalledSince=0;lastTime=v.currentTime});
-    v.addEventListener('error',function(){scheduleRetry(true)});
-    v.addEventListener('stalled',function(){stalledSince=Date.now();scheduleRetry(false)});
-    v.addEventListener('waiting',function(){if(!stalledSince)stalledSince=Date.now()});
-    v.addEventListener('ended',function(){try{v.currentTime=0}catch(e){}playVideo()});
-    v.addEventListener('timeupdate',function(){if(v.currentTime>lastTime+.05){lastTime=v.currentTime;stalledSince=0}});
-    function resumeVideo(){if(document.visibilityState==='visible'){if(v.readyState<2||v.error){scheduleRetry(true)}else{playVideo()}}}
-    document.addEventListener('visibilitychange',resumeVideo);
-    window.addEventListener('pageshow',function(){resumeVideo()});
-    window.addEventListener('online',function(){if(v.error||v.readyState<2)scheduleRetry(true)});
-    watchdogTimer=setInterval(function(){
-      if(document.visibilityState==='hidden')return;
-      if(v.paused){playVideo();return}
-      if(v.readyState<2||(stalledSince&&Date.now()-stalledSince>7000))scheduleRetry(true);
-    },8000);
-    v.load();playVideo();
+    v.addEventListener('loadeddata',function(){show();play()});
+    v.addEventListener('canplay',function(){show();play()});
+    v.addEventListener('playing',show);
+    v.addEventListener('error',retry);
+    document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'){if(v.error){retry()}else{play()}}});
+    v.load();play();
   }
+
+  /* mobile menu */
   var mb=$('#menuBtn'),menu=$('#mobileMenu'),ov=$('#overlay');
-  function setMenu(o){menu.classList.toggle('active',o);ov.classList.toggle('active',o);document.body.classList.toggle('menu-open',o);mb.setAttribute('aria-expanded',String(o))}
+  function setMenu(o){
+    menu.classList.toggle('active',o);ov.classList.toggle('active',o);
+    document.body.classList.toggle('menu-open',o);
+    mb.setAttribute('aria-expanded',String(o));menu.setAttribute('aria-hidden',String(!o));
+    if(!o)mb.focus({preventScroll:true});
+  }
   mb.addEventListener('click',function(){setMenu(!menu.classList.contains('active'))});
   ov.addEventListener('click',function(){setMenu(false)});
   $$('.ml').forEach(function(l){l.addEventListener('click',function(){setMenu(false)})});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('active'))setMenu(false)});
 
-  var tabs=$$('.tab'),panels=$$('.panel');
-  tabs.forEach(function(t){t.addEventListener('click',function(){
-    var i=+t.dataset.t;
-    tabs.forEach(function(x,j){x.setAttribute('aria-selected',String(i===j))});
-    panels.forEach(function(p,j){p.classList.toggle('on',i===j)});
-  })});
-
+  /* scroll reveal */
   var io='IntersectionObserver' in window?new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add(e.target.id==='steps'?'go':'in');io.unobserve(e.target)}})
-  },{threshold:.2}):null;
-  [].forEach.call($$('.rv,.mask,.stg,#steps'),function(el){io?io.observe(el):el.classList.add('in','go')});
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.15}):null;
+  [].forEach.call($$('.rv,.stg'),function(el){io?io.observe(el):el.classList.add('in')});
 
+  /* privacy / terms dialogs */
+  $$('[data-dialog]').forEach(function(b){b.addEventListener('click',function(){
+    var d=document.getElementById(b.getAttribute('data-dialog'));
+    if(d&&d.showModal)d.showModal();
+  })});
+  $$('dialog').forEach(function(d){
+    d.addEventListener('click',function(e){if(e.target===d)d.close()});
+    var c=d.querySelector('[data-close]');if(c)c.addEventListener('click',function(){d.close()});
+  });
+
+  /* enquiry form */
   var SCRIPT_URL="https://script.google.com/macros/s/AKfycbwMXl3Lpy0l6umOImsvUz_stBSi1DRTPG83eMAhjm0vVFGBTYcM9tTUgzSJJfaqf7c/exec";
   var form=$('#medethyx-form'),box=$('#form-alert'),btn=$('#submit-btn');
-  var label='Send enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+  var label='Submit Enquiry <svg class="icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
   form.addEventListener('submit',function(e){
-    e.preventDefault();btn.disabled=true;btn.textContent='Sending...';box.className='alert';
-    var d={fullName:$('#fullName').value,organisation:$('#organisation').value,emailAddress:$('#emailAddress').value,phoneNumber:$('#phoneNumber').value,helpTopic:$('#helpTopic').value,needs:$('#needs').value};
+    e.preventDefault();
+    box.className='alert';
+    if(!form.checkValidity()){form.reportValidity();return}
+    btn.disabled=true;btn.textContent='Sending...';
+    var d={
+      fullName:$('#fullName').value,organisation:$('#organisation').value,
+      emailAddress:$('#emailAddress').value,phoneNumber:$('#phoneNumber').value,
+      helpTopic:$('#helpTopic').value,needs:$('#needs').value,
+      consent:$('#consent').checked,website:$('#website').value
+    };
     fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})
-    .then(function(){box.className='alert success';box.textContent='Your enquiry request has been submitted. If you do not hear back, please contact MedEthyx directly using the details on this page.';form.reset()})
-    .catch(function(err){console.error(err);box.className='alert error';box.textContent='The enquiry did not send. Please email us directly.'})
+    .then(function(){box.className='alert success';box.textContent='Thank you. Your enquiry has been submitted. If you do not hear back from us within two business days, please contact MedEthyx directly using the details on this page.';form.reset()})
+    .catch(function(err){console.error(err);box.className='alert error';box.textContent='The enquiry did not send. Please email us directly at let\'sconnect@medethyx.co.zw.'})
     .finally(function(){btn.disabled=false;btn.innerHTML=label});
   });
 })();
