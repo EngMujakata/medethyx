@@ -79,6 +79,14 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-heig
 .marquee:hover div{animation-play-state:paused}
 @keyframes slide{to{transform:translateX(-100%)}}
 
+/* pages (one section visible at a time) */
+.pg-off{display:none!important}
+.section[data-page]{padding-top:168px;min-height:72vh}
+@keyframes pgin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.pg-enter{animation:pgin .55s var(--ease)}
+.nav-links a.active:after{transform:scaleX(1);transform-origin:left}
+.mobile-menu a.active:not(.btn){color:var(--teal)}
+
 /* sections */
 .section{padding:96px 0}
 .kicker{color:var(--teal);font-size:14px;font-weight:700;margin-bottom:14px}
@@ -191,6 +199,7 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
  .hero h1{font-size:clamp(2.65rem,12vw,4.6rem)}
  .hero:before{background:linear-gradient(90deg,rgba(7,22,34,.78),rgba(7,22,34,.48)),linear-gradient(0deg,rgba(7,22,34,.9),rgba(7,22,34,.08) 78%)}
  .section,.services{padding:72px 0}
+ .section[data-page]{padding-top:124px;min-height:60vh}
  .svc-grid{grid-template-columns:1fr}.svc{padding:34px 24px}
  .who-grid{grid-template-columns:1fr}
  .fg2{grid-template-columns:1fr}.card{padding:24px 18px}
@@ -234,7 +243,7 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
 </aside>
 
 <main id="top">
-<section class="hero">
+<section class="hero" data-page="top">
   <div class="hero-bg" id="heroBg">
     <video id="heroVid" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=2000&amp;q=85" aria-label="Healthcare and clinical research background video"><source src="hero.mp4?v=20261010" type="video/mp4">Your browser does not support HTML5 video.</video>
   </div>
@@ -255,9 +264,9 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div><span>Ethics Advisory</span><span>Informed Consent Support</span><span>Healthcare Compliance</span><span>Ethics &amp; Regulatory Submissions</span><span>Site Readiness</span><span>Research Compliance</span><span>Clinical Trial Operations</span></div><div><span>Ethics Advisory</span><span>Informed Consent Support</span><span>Healthcare Compliance</span><span>Ethics &amp; Regulatory Submissions</span><span>Site Readiness</span><span>Research Compliance</span><span>Clinical Trial Operations</span></div></div>
+<div class="marquee" aria-hidden="true" data-page="top"><div><span>Ethics Advisory</span><span>Informed Consent Support</span><span>Healthcare Compliance</span><span>Ethics &amp; Regulatory Submissions</span><span>Site Readiness</span><span>Research Compliance</span><span>Clinical Trial Operations</span></div><div><span>Ethics Advisory</span><span>Informed Consent Support</span><span>Healthcare Compliance</span><span>Ethics &amp; Regulatory Submissions</span><span>Site Readiness</span><span>Research Compliance</span><span>Clinical Trial Operations</span></div></div>
 
-<section class="services section" id="services">
+<section class="services section" id="services" data-page="services">
   <div class="wrap">
     <div class="kicker">What We Do</div>
     <h2>Our Services</h2>
@@ -278,7 +287,7 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
   </div>
 </section>
 
-<section class="section" id="why-choose">
+<section class="section" id="why-choose" data-page="why-choose">
   <div class="wrap">
     <div class="kicker">Why Choose MedEthyx</div>
     <h2>Your Partner in Ethical and Compliant Practice</h2>
@@ -291,7 +300,7 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
   </div>
 </section>
 
-<section class="section who" id="who-we-help">
+<section class="section who" id="who-we-help" data-page="who-we-help">
   <div class="wrap">
     <h2>Who We Help</h2>
     <div class="who-grid">
@@ -314,7 +323,7 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
   </div>
 </section>
 
-<section class="section" id="blog">
+<section class="section" id="blog" data-page="blog">
   <div class="wrap">
     <h2>MedEthyx Blog</h2>
     <div class="blog-grid">
@@ -334,7 +343,7 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
   </div>
 </section>
 
-<section class="section contact" id="consultation">
+<section class="section contact" id="consultation" data-page="consultation">
   <div class="wrap">
     <div class="kicker">Contact</div>
     <h2>Let's start the conversation.</h2>
@@ -444,10 +453,45 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
   function onScroll(){
     var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
     bar.style.transform='scaleX('+(h>0?y/h:0)+')';
-    header.classList.toggle('solid',y>40);
+    header.classList.toggle('solid',y>40||document.body.getAttribute('data-page')!=='top');
     if(!reduce&&y<innerHeight*1.2)bg.style.transform='translateY('+(y*.18)+'px)';
   }
   addEventListener('scroll',function(){requestAnimationFrame(onScroll)},{passive:true});onScroll();
+
+  /* page router: one section at a time, driven by the URL hash */
+  var TITLES={
+    'top':'MedEthyx | Ethical Compliance Support for Healthcare and Research',
+    'services':'Our Services | MedEthyx',
+    'why-choose':'Why Choose MedEthyx',
+    'who-we-help':'Who We Help | MedEthyx',
+    'blog':'Blog | MedEthyx',
+    'consultation':'Contact | MedEthyx'
+  };
+  var heroVid=$('#heroVid');
+  function route(){
+    var key=(location.hash||'#top').slice(1);
+    if(!TITLES.hasOwnProperty(key))key='top';
+    document.body.setAttribute('data-page',key);
+    $$('[data-page]').forEach(function(el){
+      if(el===document.body)return;
+      var on=el.getAttribute('data-page')===key;
+      el.classList.toggle('pg-off',!on);
+      el.classList.remove('pg-enter');
+      if(on){void el.offsetWidth;el.classList.add('pg-enter');
+        [].forEach.call(el.querySelectorAll('.rv,.stg'),function(x){x.classList.remove('in');void x.offsetWidth;requestAnimationFrame(function(){x.classList.add('in')})});
+      }
+    });
+    $$('.nav-links a,.mobile-menu a:not(.btn)').forEach(function(a){
+      var on=a.getAttribute('href')==='#'+key;
+      a.classList.toggle('active',on);
+      if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+    document.title=TITLES[key];
+    window.scrollTo({top:0,left:0,behavior:'instant'});
+    if(heroVid){try{key==='top'?heroVid.play&&heroVid.play().catch(function(){}):heroVid.pause()}catch(e){}}
+    onScroll();
+  }
+  addEventListener('hashchange',route);
 
   /* hero video with capped retries */
   var v=$('#heroVid');
@@ -501,6 +545,8 @@ dialog::backdrop{background:rgba(10,29,43,.6)}
     d.addEventListener('click',function(e){if(e.target===d)d.close()});
     var c=d.querySelector('[data-close]');if(c)c.addEventListener('click',function(){d.close()});
   });
+
+  route();
 
   /* enquiry form */
   var SCRIPT_URL="https://script.google.com/macros/s/AKfycbwMXl3Lpy0l6umOImsvUz_stBSi1DRTPG83eMAhjm0vVFGBTYcM9tTUgzSJJfaqf7c/exec";
